@@ -1,9 +1,7 @@
 import enumCardTypes.CardTypes;
-
 import enumCardTypes.CardValue;
-
-import enumCardTypes.EnumSuits;
-import  org.junit.jupiter.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
@@ -15,12 +13,7 @@ public class testCard {
         @Test
         @DisplayName("Test All")
         void TestAll() {
-
                 checkAllCardTypes();
-            //    hasValidCardSuit();
-            //    checkAllCardTypes();
-
-
                 checkPointValues();
 
         }
