@@ -1,6 +1,7 @@
 import enumCardTypes.CardTypes;
 
 public class Card {
+
         Card(){
 
         }
@@ -30,7 +31,10 @@ public class Card {
             return null;
         }
         public boolean isCurrentlyHeld() {
-            return false;
+            return true;
+        }
+        public void setCurrentlyHeld() {
+
         }
 
 }
