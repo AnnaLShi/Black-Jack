@@ -1,6 +1,9 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+<<<<<<< HEAD
 // this test that the
+=======
+>>>>>>> 9aa97420bf14d9dce379180566fdadb73794bd0c
 
 public class TestCardDeck {
     @Test
@@ -9,6 +12,7 @@ public class TestCardDeck {
 
     }
 
+<<<<<<< HEAD
     private void ruleCheckNoJoker() {
 
         // Deck shuffled has no jokers.
@@ -28,4 +32,9 @@ public class TestCardDeck {
 
 
 
+=======
+    private void isThereJoker() {
+        // get prewriten rules about deck
+    }
+>>>>>>> 9aa97420bf14d9dce379180566fdadb73794bd0c
 }

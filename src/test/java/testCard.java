@@ -13,9 +13,20 @@ public class testCard {
         @Test
         @DisplayName("Test All")
         void TestAll() {
+<<<<<<< HEAD
                 checkAllCardTypes();
                 checkPointValues();
 
+=======
+
+                checkAllCardTypes();
+            //    hasValidCardSuit();
+            //    checkAllCardTypes();
+
+
+                checkPointValues();
+
+>>>>>>> 9aa97420bf14d9dce379180566fdadb73794bd0c
         }
 
         @DisplayName("Check All Card Types")
