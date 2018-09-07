@@ -1,29 +1,29 @@
 package enumCardTypes;
 
 public enum CardTypes {
-    ACE(1),
-    TWO(2),
-    THREE(3),
-    FOUR(4),
-    FIVE(5),
-    SIX(6),
-    SEVEN(7),
-    EIGHT(8),
-    NINE(9),
-    TEN(10),
-    JACK(11),
-    QUEEN(12),
-    KING(13),
-    JOKER(14)
+    ACE("A"),
+    TWO("2"),
+    THREE("3"),
+    FOUR("4"),
+    FIVE("5"),
+    SIX("6"),
+    SEVEN("7"),
+    EIGHT("8"),
+    NINE("9"),
+    TEN("10"),
+    JACK("J"),
+    QUEEN("Q"),
+    KING("K"),
+    JOKER("Jkr")  // not supose to to show up
     ;
 
-    private int type;
+    private String type;
 
-    CardTypes(int type) {
+    CardTypes(String type) {
         this.type = type;
     }
 
-    public int getCardType() {
+    public String getCardType() {
         return type;
     }
 }

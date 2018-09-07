@@ -1,40 +1,49 @@
 import enumCardTypes.CardTypes;
+import enumCardTypes.CardValue;
+import enumCardTypes.EnumSuits;
 
 public class Card {
+        private EnumSuits suit;
+        private CardValue value;
+        private CardTypes cardType;
+        private boolean isheld;
 
         Card(){
-
+            super();
+            this.isheld = false;
         }
-        Card(String suit, int[] pointValue, String cardType) {
 
+
+        Card(EnumSuits suit, CardValue value, CardTypes type) {
+            this.suit = suit;
+            this.value = value;
+            this.cardType = type;
+            this.isheld = false;
         }
-        // write set values
-
         public String getCardSuit() {
-            // hearts.. diamonds
-            return null;
+            return suit.name();
         }
-        public void setCardValue(int [] value) {
+        public void setCardValue(CardValue value) {
+            this.value = value;
+        }
 
-       }
-
-        public int[] getPointValue() {
-            return null;
+        public CardValue getPointValue() {
+            return this.value;
         }
 
         public void setCardType(CardTypes aType) {
-
+            this.cardType = aType;
         }
 
-        public String getCardType() {
+        public CardTypes getCardType() {
             // ace... Joker
-            return null;
+            return this.cardType;
         }
         public boolean isCurrentlyHeld() {
-            return true;
+            return this.isheld;
         }
-        public void setCurrentlyHeld() {
-
+        public void setCurrentlyHeld(boolean isheld) {
+            this.isheld = isheld;
         }
 
 }
