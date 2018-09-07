@@ -10,48 +10,27 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-// spite this into different files so testing can be done in different places
-
-// This is to test for data integrity.
-
 
 public class testCard {
         @Test
         @DisplayName("Test All")
         void TestAll() {
+
+                checkAllCardTypes();
             //    hasValidCardSuit();
             //    checkAllCardTypes();
 
+
                 checkPointValues();
 
-        }
-        @DisplayName("Test All")
-        private void hasValidCardSuit() {
-            // test for valid card suit
-                int [] test_data = new int[1];
-
-                Card d = new Card("DIAMOND", test_data ,"test");
-                Card h = new Card("HEART", test_data ,"test");
-                Card c = new Card("CLUBS", test_data ,"test");
-                Card s = new Card("SPADES", test_data ,"test");
-
-                checkValidSuit(d);
-                checkValidSuit(h);
-                checkValidSuit(c);
-                checkValidSuit(s);
-        }
-
-        private void checkValidSuit(Card card) {
-                for (EnumSuits suit: EnumSuits.values()) {
-                        if ((card.getCardSuit()).equals(suit.name())) {
-                                assertEquals(suit.name(), card.getCardSuit());
-                        }
-                }
         }
 
         @DisplayName("Check All Card Types")
         private void checkAllCardTypes() {
                 ArrayList<Card> cards = new ArrayList<Card>();
+                int count_correct = 0;
+                int expected_correct = 13;
+
                 for (CardTypes types: CardTypes.values()) {
                         Card card = new Card();
                         card.setCardType(types);
@@ -60,26 +39,43 @@ public class testCard {
 
                 for (CardTypes types: CardTypes.values()) {
                         for (int i = 0; i < cards.size()-1; i++) {
-                                assertEquals(types.name(), cards.get(i).getCardType());
+                                if  (types.name().equals(cards.get(i).getCardType().name())) {
+                                        assertEquals(types.name(), cards.get(i).getCardType().name());
+                                        count_correct++;
+                                }
                         }
                 }
+                assertEquals(expected_correct , count_correct);
         }
 
         private void checkPointValues() {
                 ArrayList<Card> cards = new ArrayList<Card>();
-
+                int count_correct = 0;
+                int expected_correct = 13;
                 for (CardValue value: CardValue.values()) {
                         Card card = new Card();
-                        card.setCardValue(value.getCardValue());
+                        card.setCardValue(value);
                         cards.add(card);
                 }
 
+
                 for (CardValue value: CardValue.values()) {
-                        for (int i = 0; i < cards.size()-1; i++) {
-                                assertEquals(value.getCardValue(), cards.get(i).getPointValue());
+                        for (int i = 0; i < cards.size()-1; ++i) {
+                                if (value.name().equals(cards.get(i).getPointValue().name())) {
+                                        assertEquals(value.getCardValue(), cards.get(i).getPointValue().getCardValue());
+                                        count_correct++;
+                                }
                         }
                 }
+                assertEquals(expected_correct , count_correct);
 
+                // log this out or something
+        }
+
+
+
+        private void checkSameName(CardTypes type, CardValue value) {
+                assertEquals(type.name(), value.name()); // this might be moved to test when the cards are created.
         }
 
 }
