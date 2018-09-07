@@ -1,4 +1,5 @@
 import enumCardTypes.CardTypes;
+import enumCardTypes.CardValue;
 import enumCardTypes.EnumSuits;
 import  org.junit.jupiter.api.*;
 
@@ -6,7 +7,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-// spite this into different files so testing can be done in different places
+// This is to test for data integrity.
 
 public class testCard {
         @Test
@@ -14,6 +15,7 @@ public class testCard {
         void TestAll() {
             //    hasValidCardSuit();
             //    checkAllCardTypes();
+                checkPointValues();
         }
         @DisplayName("Test All")
         private void hasValidCardSuit() {
@@ -57,7 +59,18 @@ public class testCard {
 
         private void checkPointValues() {
                 ArrayList<Card> cards = new ArrayList<Card>();
-                
+                for (CardValue value: CardValue.values()) {
+                        Card card = new Card();
+                        card.setCardValue(value.getCardValue());
+                        cards.add(card);
+                }
+
+                for (CardValue value: CardValue.values()) {
+                        for (int i = 0; i < cards.size()-1; i++) {
+                                assertEquals(value.getCardValue(), cards.get(i).getPointValue());
+                        }
+                }
+
         }
 
 }
