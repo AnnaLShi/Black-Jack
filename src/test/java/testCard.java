@@ -1,5 +1,7 @@
 import enumCardTypes.CardTypes;
+
 import enumCardTypes.CardValue;
+
 import enumCardTypes.EnumSuits;
 import  org.junit.jupiter.api.*;
 
@@ -7,14 +9,20 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-// Fix  this to
+
 
 public class testCard {
         @Test
         @DisplayName("Test All")
         void TestAll() {
+
                 checkAllCardTypes();
+            //    hasValidCardSuit();
+            //    checkAllCardTypes();
+
+
                 checkPointValues();
+
         }
 
         @DisplayName("Check All Card Types")
