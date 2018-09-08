@@ -11,6 +11,7 @@ public class Runner {
         Card card = new Card(CardSuits.CLUBS, CardValue.ACE, CardTypes.ACE);
         Rules rule = new Rules(new RulesReader());
 
+
         // just here for now
     }
 }

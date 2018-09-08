@@ -2,9 +2,11 @@ import enumCardTypes.CardRules;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+
 import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 
 public class TestCardDeck {
     @Test
@@ -46,13 +48,13 @@ public class TestCardDeck {
         // that the cards when first configured that the CardValue and CardType has the same name of enum...
         CardDeck deck = new CardDeck(null);
 
+
         for (Card card: deck.getCardDeck()) {
             assertEquals(card.getCardType().name(), card.getPointValue().name());
         }
 
 
     }
-
 
 
 }

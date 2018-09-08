@@ -33,6 +33,7 @@ public class TestRuleReader {
         assertFalse(rules.hasJoker());
     }
 
+
     @Test
     @DisplayName("Check No Rules")
     public void checkNoRules() {
@@ -55,6 +56,13 @@ public class TestRuleReader {
     private void checkforTrueJoker() {
         RulesReader rulesReader = new RulesReader("TestRules\\testRules1.rules");
         assertTrue(rulesReader.hasJoker());
+    }
+
+    @Test
+    @DisplayName("Check for Valid Settings")
+    private void checkForValidSettings() {
+        // configure for later
+
     }
 
 }
