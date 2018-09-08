@@ -73,6 +73,7 @@ public class RulesReader {
             rule = br.readLine();
         }
 
+<<<<<<< HEAD
     }
     // get the size of deck rules extremely similar so clean for code reuse maybe
     private int configSize() {
@@ -101,6 +102,36 @@ public class RulesReader {
 
         return Integer.parseInt(getStrInt.toString());
     }
+=======
+    }
+    // get the size of deck rules extremely similar so clean for code reuse maybe
+    private int configSize() {
+        String getRule = "";
+        StringBuilder getStrInt = new StringBuilder();
+        int size;
+
+        for (String str: allRules) {
+            if (str.contains(CardRules.DECK_SIZE.name())) {
+                getRule = str;
+                break;
+            }
+        }
+
+        for (int i = getRule.length() - 1; i > 0; i--) {
+            if (Character.isDigit(getRule.charAt(i))) {
+                getStrInt.append(getRule.charAt(i));
+            }
+        }
+
+        getStrInt.reverse();
+
+        if (getStrInt.length() == 0) {
+            return -1;
+        }
+
+        return Integer.parseInt(getStrInt.toString());
+    }
+>>>>>>> ffe827fba10b777a8dcb5684dea97748acf4985f
 
     public boolean checkJoker() {
        String getRule = "";
@@ -134,16 +165,21 @@ public class RulesReader {
 
     }
 
+<<<<<<< HEAD
     private boolean isRulesValid() {
         return false;
     }
 
+=======
+>>>>>>> ffe827fba10b777a8dcb5684dea97748acf4985f
 
     // this would get all rules that are from the file.
 
     public String [] getAllRules() {
         return allRules.toArray(new String[allRules.size()]);
     }
+
+
 
     public int deckSize() {
         return this.size;

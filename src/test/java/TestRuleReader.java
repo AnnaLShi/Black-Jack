@@ -33,6 +33,7 @@ public class TestRuleReader {
         assertFalse(rules.hasJoker());
     }
 
+<<<<<<< HEAD
     @Test
     @DisplayName("Check No Rules")
     public void checkNoRules() {
@@ -60,6 +61,11 @@ public class TestRuleReader {
     @Test
     @DisplayName("Check for Valid Settings")
     private void checkForValidSettings() {
+=======
+    private void initializationCheck() {
+        // This should check if the initialization looks good.
+
+>>>>>>> ffe827fba10b777a8dcb5684dea97748acf4985f
 
     }
 
