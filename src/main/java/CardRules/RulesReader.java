@@ -134,14 +134,16 @@ public class RulesReader {
 
     }
 
+    private boolean isRulesValid() {
+        return false;
+    }
+
 
     // this would get all rules that are from the file.
 
     public String [] getAllRules() {
         return allRules.toArray(new String[allRules.size()]);
     }
-
-
 
     public int deckSize() {
         return this.size;
