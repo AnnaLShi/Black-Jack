@@ -1,9 +1,10 @@
+import enumCardTypes.CardRules;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-<<<<<<< HEAD
-// this test that the
-=======
->>>>>>> 9aa97420bf14d9dce379180566fdadb73794bd0c
+
+import java.util.HashSet;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestCardDeck {
     @Test
@@ -12,29 +13,46 @@ public class TestCardDeck {
 
     }
 
-<<<<<<< HEAD
-    private void ruleCheckNoJoker() {
-
+    // this is for the default deck
+    @Test
+    @DisplayName("Check for No Joker")
+    public void checkNoJoker() {
         // Deck shuffled has no jokers.
+        CardDeck cardDeck = new CardDeck(null);
+        assertFalse(cardDeck.hasJoker());
     }
-    private void checkCardsInDeckUnique() {
+    @Test
+    @DisplayName("Check for Rules")
+    public void checkRules() {
+        // this should never be null, as it is. it should just default to default size
+        CardDeck deck = new CardDeck(null);
+        assertNotNull(deck.getRules());
+    }
+    @Test
+    @DisplayName("Check for Unique Cards")
+    public void checkCardsInDeckUnique() {
         // All card in the deck should be Unqiue.
         // override if there is two or more decks being played.
+        CardDeck deck = new CardDeck(null);
+        HashSet<Card> uniqueCheck = new HashSet<Card>();
+        assertEquals( deck.getRules().get(CardRules.DECK_SIZE) , deck.getSize());
+        uniqueCheck.addAll(deck.getCardDeck());
+        assertEquals(deck.getRules().get(CardRules.DECK_SIZE), uniqueCheck.size());
     }
 
-    private void checkCorrectAmountofCards() {
-        // check for correct amount of cards in deck
-    }
-
-    private void checkCardsHaveCorrectValue() {
+    @Test
+    @DisplayName("Check for Assigned Cards to be correct")
+    public void checkCardsHaveCorrectValue() {
         // that the cards when first configured that the CardValue and CardType has the same name of enum...
+        CardDeck deck = new CardDeck(null);
+
+        for (Card card: deck.getCardDeck()) {
+            assertEquals(card.getCardType().name(), card.getPointValue().name());
+        }
+
+
     }
 
 
 
-=======
-    private void isThereJoker() {
-        // get prewriten rules about deck
-    }
->>>>>>> 9aa97420bf14d9dce379180566fdadb73794bd0c
 }

@@ -39,8 +39,8 @@ public class TestRuleReader {
         // this check should check in non existance rule directory.
         // make sure there is something written to check for valid rules.
         RulesReader rulesReader = new RulesReader("dont\\exist");
-        assertNull(rulesReader);
-        assertEquals(0, rulesReader.deckSize());
+        assertEquals(0,rulesReader.getAllRules().length);
+        assertEquals(-1, rulesReader.deckSize());
         assertEquals(false, rulesReader.hasJoker());
     }
 
@@ -55,12 +55,6 @@ public class TestRuleReader {
     private void checkforTrueJoker() {
         RulesReader rulesReader = new RulesReader("TestRules\\testRules1.rules");
         assertTrue(rulesReader.hasJoker());
-    }
-
-    @Test
-    @DisplayName("Check for Valid Settings")
-    private void checkForValidSettings() {
-
     }
 
 }
