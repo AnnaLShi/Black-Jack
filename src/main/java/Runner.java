@@ -10,11 +10,7 @@ public class Runner {
         Card card = new Card(CardSuits.CLUBS, CardValue.ACE, CardTypes.ACE);
         RulesReader reader = new RulesReader();
 
-<<<<<<< HEAD
-
-=======
         System.out.print(card.getCardType().name());
->>>>>>> 9aa97420bf14d9dce379180566fdadb73794bd0c
         // just here for now
     }
 }
