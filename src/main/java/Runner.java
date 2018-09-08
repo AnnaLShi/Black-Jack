@@ -1,3 +1,4 @@
+import CardRules.Rules;
 import CardRules.RulesReader;
 import enumCardTypes.CardTypes;
 import enumCardTypes.CardValue;
@@ -8,9 +9,9 @@ import enumCardTypes.CardSuits;
 public class Runner {
     public static void main (String []args) {
         Card card = new Card(CardSuits.CLUBS, CardValue.ACE, CardTypes.ACE);
-        RulesReader reader = new RulesReader();
+        Rules rule = new Rules(new RulesReader());
 
-        System.out.print(card.getCardType().name());
+
         // just here for now
     }
 }
