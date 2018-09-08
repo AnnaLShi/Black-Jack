@@ -12,6 +12,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class testCard {
 
         @Test
+        @DisplayName("Test All")
+        void TestAll() {
+                checkAllCardTypes();
+                checkPointValues();
+
+        }
+
+
+        @Test
         @DisplayName("Check all Card")
         public void checkAllCardTypes() {
                         ArrayList<Card> cards = new ArrayList<Card>();
