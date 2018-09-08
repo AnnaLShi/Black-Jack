@@ -1,0 +1,11 @@
+#! This is a the configuration rules for the game.
+#! Users may be able to configure the size of the deck and if the deck has joker.
+
+
+tslkjaldas #!
+
+DECK_SIZE: 52
+HAS_JOKER: false
+
+
+adsfklads eaf #! fdsafasf

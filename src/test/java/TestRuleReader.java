@@ -32,4 +32,11 @@ public class TestRuleReader {
         RulesReader rules = new RulesReader();
         assertFalse(rules.hasJoker());
     }
+
+    private void initializationCheck() {
+        // This should check if the initialization looks good.
+
+
+    }
+
 }
