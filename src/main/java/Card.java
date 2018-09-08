@@ -1,9 +1,9 @@
 import enumCardTypes.CardTypes;
 import enumCardTypes.CardValue;
-import enumCardTypes.EnumSuits;
+import enumCardTypes.CardSuits;
 
 public class Card {
-        private EnumSuits suit;
+        private CardSuits suit;
         private CardValue value;
         private CardTypes cardType;
         private boolean isheld;
@@ -14,7 +14,7 @@ public class Card {
         }
 
 
-        Card(EnumSuits suit, CardValue value, CardTypes type) {
+        Card(CardSuits suit, CardValue value, CardTypes type) {
             this.suit = suit;
             this.value = value;
             this.cardType = type;

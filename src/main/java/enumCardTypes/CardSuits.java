@@ -1,6 +1,6 @@
 package enumCardTypes;
 
-public enum EnumSuits{
+public enum CardSuits{
     DIAMOND,
     HEART,
     CLUBS,

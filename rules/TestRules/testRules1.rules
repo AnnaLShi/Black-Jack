@@ -1,0 +1,5 @@
+#! This is a the configuration rules for the game.
+#! this is testing for a different size that would be read
+
+DECK_SIZE = 36
+HAS_JOKER: true
