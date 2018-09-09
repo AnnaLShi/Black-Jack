@@ -2,20 +2,13 @@ import enumCardTypes.CardRules;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
 import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 
 public class TestCardDeck {
-    @Test
-    @DisplayName("Test All")
-    void TestAll() {
 
-    }
-
-    // this is for the default deck
     @Test
     @DisplayName("Check for No Joker")
     public void checkNoJoker() {
@@ -23,12 +16,13 @@ public class TestCardDeck {
         CardDeck cardDeck = new CardDeck(null);
         assertFalse(cardDeck.hasJoker());
     }
+
     @Test
     @DisplayName("Check for Rules")
     public void checkRules() {
         // this should never be null, as it is. it should just default to default size
         CardDeck deck = new CardDeck(null);
-        assertNotNull(deck.getRules());
+        assertNotNull(deck.getDeckRules());
     }
     @Test
     @DisplayName("Check for Unique Cards")
@@ -37,9 +31,10 @@ public class TestCardDeck {
         // override if there is two or more decks being played.
         CardDeck deck = new CardDeck(null);
         HashSet<Card> uniqueCheck = new HashSet<Card>();
-        assertEquals( deck.getRules().get(CardRules.DECK_SIZE) , deck.getSize());
+        // change name...
+        assertEquals(deck.getDeckRules().getRules().get(CardRules.DECK_SIZE) , deck.getSize());
         uniqueCheck.addAll(deck.getCardDeck());
-        assertEquals(deck.getRules().get(CardRules.DECK_SIZE), uniqueCheck.size());
+        assertEquals(deck.getDeckRules().getRules().get(CardRules.DECK_SIZE), uniqueCheck.size());
     }
 
     @Test
