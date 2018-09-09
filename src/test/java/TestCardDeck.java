@@ -2,9 +2,12 @@ import enumCardTypes.CardRules;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+
 import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+
 
 
 public class TestCardDeck {
@@ -23,6 +26,8 @@ public class TestCardDeck {
         // this should never be null, as it is. it should just default to default size
         CardDeck deck = new CardDeck(null);
         assertNotNull(deck.getDeckRules());
+
+
     }
     @Test
     @DisplayName("Check for Unique Cards")

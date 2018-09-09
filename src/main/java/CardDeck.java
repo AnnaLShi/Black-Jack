@@ -1,3 +1,4 @@
+
 import CardRules.Rules;
 import enumCardTypes.CardRules;
 import enumCardTypes.CardSuits;
@@ -55,8 +56,6 @@ public class CardDeck {
         return cardType;
     }
 
-
-
     public boolean hasJoker() {
         return containsJoker;
     }
@@ -72,6 +71,7 @@ public class CardDeck {
 
     public Rules getDeckRules() {
             return rules;
+
     }
 
 
