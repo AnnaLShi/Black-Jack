@@ -28,7 +28,7 @@ public class Rules {
     }
 
 
-    private HashMap<CardRules, Object> getDefaultRules() {
+    private HashMap<CardRules, Object> getReaderRules() {
 
         HashMap<CardRules, Object> rulesSet = new HashMap<CardRules, Object>();
         rulesSet.put(CardRules.DECK_SIZE, reader.deckSize());
@@ -36,7 +36,7 @@ public class Rules {
         return rulesSet;
     }
 
-    private HashMap<CardRules, Object> getReaderRules() {
+    private HashMap<CardRules, Object> getDefaultRules() {
         HashMap<CardRules, Object> rulesSet = new HashMap<CardRules, Object>();
         rulesSet.put(CardRules.DECK_SIZE, Integer.parseInt(CardRules.DECK_SIZE.getRulesConfig()));
         rulesSet.put(CardRules.HAS_JOKER, Boolean.parseBoolean(CardRules.HAS_JOKER.getRulesConfig().toLowerCase()));
