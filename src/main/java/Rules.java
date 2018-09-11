@@ -1,5 +1,6 @@
 package CardRules;
 
+import ReaderTypes.RulesReader;
 import enumCardTypes.CardRules;
 
 import java.util.HashMap;

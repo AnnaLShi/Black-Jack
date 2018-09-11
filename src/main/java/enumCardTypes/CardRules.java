@@ -1,4 +1,5 @@
 package enumCardTypes;
+// this shows all the valid rules and the defaults.
 
 public enum CardRules {
     DECK_SIZE("52"),
