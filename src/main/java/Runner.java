@@ -1,6 +1,7 @@
 import CardRules.Rules;
 
-import CardRules.RulesReader;
+import ReaderTypes.FileReader;
+import ReaderTypes.RulesReader;
 import enumCardTypes.CardTypes;
 import enumCardTypes.CardValue;
 import enumCardTypes.CardSuits;
@@ -13,5 +14,9 @@ public class Runner {
         CardDeck deck = new CardDeck(new Rules());
         Card card = new Card(CardSuits.CLUBS, CardValue.ACE, CardTypes.ACE);
         Rules rule = new Rules(new RulesReader());
+
+        //
+        FileReader file = new FileReader("file4.in");
+        System.out.println(file.validateFileType());
     }
 }

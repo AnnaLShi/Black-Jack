@@ -1,10 +1,7 @@
-package CardRules;
+package ReaderTypes;
 
 import enumCardTypes.CardRules;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -47,31 +44,8 @@ public class RulesReader {
 
 
     private void readRules(String propName) throws IOException{
-        this.allRules = new ArrayList<String>();
-        char [] str;
-
-        String locate = "rules\\" + propName;
-        File file = new File(locate);
-        BufferedReader br = new BufferedReader(new FileReader(file));
-
-        String rule = br.readLine();
-
-        while (rule != null) {
-            str = new char[rule.length()];
-            for (int i = 0; i < rule.length(); i++) {
-                if (rule.charAt(i) == '#' && rule.charAt(i+1) == '!') {
-                    break;
-                }
-                else {
-                    str[i] = rule.charAt(i);
-                }
-            }
-                rule = String.valueOf(str).trim();
-            if (rule.length() > 0) {
-                this.allRules.add(rule);
-            }
-            rule = br.readLine();
-        }
+        CustomReader reader = new CustomReader(propName, "rules");
+        this.allRules = reader.getReadFile();
 
     }
     // get the size of deck rules extremely similar so clean for code reuse maybe
@@ -80,6 +54,10 @@ public class RulesReader {
         StringBuilder getStrInt = new StringBuilder();
         int size;
 
+        if (allRules == null) {
+            // This error means that the rules aren't read
+            return -1;
+        }
         for (String str: allRules) {
             if (str.contains(CardRules.DECK_SIZE.name())) {
                 getRule = str;
@@ -98,7 +76,6 @@ public class RulesReader {
         if (getStrInt.length() == 0) {
             return -1;
         }
-
         return Integer.parseInt(getStrInt.toString());
     }
 
@@ -108,6 +85,10 @@ public class RulesReader {
        String getRule = "";
        StringBuilder getStrInt = new StringBuilder();
         String booleanCheck;
+
+        if (this.allRules == null) {
+            return false;
+        }
 
        for (String str: allRules) {
            if (str.contains(CardRules.HAS_JOKER.name())) {
@@ -137,6 +118,9 @@ public class RulesReader {
     }
 
     public String [] getAllRules() {
+        if (allRules == null) {
+            return null;
+        }
         return allRules.toArray(new String[allRules.size()]);
     }
 
