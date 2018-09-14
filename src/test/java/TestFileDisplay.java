@@ -24,8 +24,7 @@ public class TestFileDisplay {
         }
 
         String [] temp = str.split("\\s+");
-
-        DirectoryReader reader = new DirectoryReader();
+        DirectoryReader reader = new DirectoryReader("files");
         assertArrayEquals(temp, reader.getFilesFromDirectory().toArray());
     }
 }
