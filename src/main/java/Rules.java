@@ -1,4 +1,4 @@
-package CardRules;
+
 
 import ReaderTypes.RulesReader;
 import enumCardTypes.CardRules;

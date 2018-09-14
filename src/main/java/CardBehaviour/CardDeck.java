@@ -1,3 +1,4 @@
+package CardBehaviour;
 
 import CardRules.Rules;
 import enumCardTypes.CardRules;
@@ -6,14 +7,13 @@ import enumCardTypes.CardTypes;
 import enumCardTypes.CardValue;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class CardDeck {
     private ArrayList<Card> cardDeck;
     private Rules rules;
     private boolean containsJoker;
 
-    CardDeck(Rules rules) {
+    public CardDeck(Rules rules) {
         if (rules != null) {
             this.rules = rules;
             this.cardDeck = initCardDeck();
@@ -24,7 +24,7 @@ public class CardDeck {
         }
     }
 
-    CardDeck() {
+    public CardDeck() {
         this.rules = new Rules();
         this.cardDeck = initCardDeck();
     }
@@ -44,7 +44,6 @@ public class CardDeck {
                 }
             }
         }
-        Collections.shuffle(cardDeck);
         return cardDeck;
     }
 

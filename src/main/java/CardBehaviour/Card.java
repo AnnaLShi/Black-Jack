@@ -1,3 +1,5 @@
+package CardBehaviour;
+
 import enumCardTypes.CardTypes;
 import enumCardTypes.CardValue;
 import enumCardTypes.CardSuits;
@@ -8,13 +10,13 @@ public class Card {
         private CardTypes cardType;
         private boolean isheld;
 
-        Card(){
+        public Card(){
             super();
             this.isheld = false;
         }
 
 
-        Card(CardSuits suit, CardValue value, CardTypes type) {
+        public Card(CardSuits suit, CardValue value, CardTypes type) {
             this.suit = suit;
             this.value = value;
             this.cardType = type;
