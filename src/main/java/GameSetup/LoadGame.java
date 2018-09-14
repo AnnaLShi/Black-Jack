@@ -2,6 +2,7 @@ package GameSetup;
 
 import CardBehaviour.Card;
 import CardBehaviour.CardDeck;
+import ReaderTypes.DirectoryReader;
 import ReaderTypes.FileReader;
 import Text_Based_UI.IntroScreenUI;
 import enumCardTypes.CardCommands;
@@ -51,6 +52,7 @@ public class LoadGame {
 
 
 
+
     }
 
 
@@ -59,11 +61,14 @@ public class LoadGame {
         Scanner in = new Scanner(System.in);
         String getFileName;
         FileReader reader;
+        DirectoryReader directory;
+
+        directory = new DirectoryReader("files");
+        System.out.println(directory.printArrayListFiles());
 
         while (in.hasNext()) {
             getFileName = in.next();
             reader = new FileReader(getFileName);
-
             if (getFileName.equals("back")) {
                 System.out.print(IntroScreenUI.Back_To_Main_Menu);
                 System.out.println(IntroScreenUI.introToGame_Hello);
@@ -71,6 +76,9 @@ public class LoadGame {
             }
             if (!reader.validateFileType()) {
                 System.out.println(IntroScreenUI.file_invalid);
+                directory = new DirectoryReader("files");
+                System.out.println(directory.printArrayListFiles());
+
             }
 
             if (reader.validateFileType()) {
