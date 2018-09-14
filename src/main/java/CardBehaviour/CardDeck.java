@@ -1,3 +1,4 @@
+package CardBehaviour;
 
 import CardRules.Rules;
 import enumCardTypes.CardRules;
@@ -12,7 +13,7 @@ public class CardDeck {
     private Rules rules;
     private boolean containsJoker;
 
-    CardDeck(Rules rules) {
+    public CardDeck(Rules rules) {
         if (rules != null) {
             this.rules = rules;
             this.cardDeck = initCardDeck();
@@ -23,7 +24,7 @@ public class CardDeck {
         }
     }
 
-    CardDeck() {
+    public CardDeck() {
         this.rules = new Rules();
         this.cardDeck = initCardDeck();
     }

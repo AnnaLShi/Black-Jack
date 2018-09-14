@@ -1,3 +1,4 @@
+import CardBehaviour.Card;
 import enumCardTypes.CardTypes;
 import enumCardTypes.CardValue;
 import org.junit.jupiter.api.DisplayName;

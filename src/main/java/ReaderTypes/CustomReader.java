@@ -15,7 +15,7 @@ public class CustomReader {
         this.readerType = readerType;
     }
 
-    public ArrayList<String> getReadFile() throws IOException {
+     public ArrayList<String> getReadFile() throws IOException {
         ArrayList<String> readItems = new ArrayList<String>();
         char[] str;
         String locate;

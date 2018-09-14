@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-// I'll have to move this elsewhere
 public class FileReader {
     private ArrayList<String> read;
     private boolean isValidFileType;
@@ -20,7 +19,6 @@ public class FileReader {
             this.read = customReader.getReadFile();
         }
         catch (IOException e) {
-            System.out.print("WARNING FILE IS MISSPELLED OR MISSING");
             this.isValidFileType = false;
         }
         this.isValidFileType = checkValidRuleType();

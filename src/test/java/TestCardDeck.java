@@ -1,3 +1,5 @@
+import CardBehaviour.Card;
+import CardBehaviour.CardDeck;
 import enumCardTypes.CardRules;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
