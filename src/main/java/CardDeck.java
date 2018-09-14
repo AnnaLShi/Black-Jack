@@ -6,7 +6,6 @@ import enumCardTypes.CardTypes;
 import enumCardTypes.CardValue;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class CardDeck {
     private ArrayList<Card> cardDeck;
@@ -44,7 +43,6 @@ public class CardDeck {
                 }
             }
         }
-        Collections.shuffle(cardDeck);
         return cardDeck;
     }
 
