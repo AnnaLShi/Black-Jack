@@ -1,6 +1,5 @@
 package CardBehaviour;
 
-import CardRules.Rules;
 import enumCardTypes.CardRules;
 import enumCardTypes.CardSuits;
 import enumCardTypes.CardTypes;
