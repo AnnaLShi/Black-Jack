@@ -24,7 +24,10 @@ public class CustomReader {
             locate = "rules\\" + this.location;
         } else if (this.readerType.toLowerCase().equals("files")) {
             locate = "files\\" + this.location;
-        } else {
+        } else if(this.readerType.toLowerCase().equals("custom")) {
+            locate = this.location;
+        }
+         else {
             throw new IOException("Reader Type is invalid");
         }
         File file = new File(locate);
