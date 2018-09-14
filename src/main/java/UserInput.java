@@ -1,9 +1,11 @@
+
 import enumCardTypes.CardCommands;
 import enumCardTypes.CardSuits;
 import enumCardTypes.CardValue;
 
 public class UserInput {
     private String input;
+
     UserInput() {
         super();
     }
@@ -27,7 +29,7 @@ public class UserInput {
     }
 
     public boolean isValidCommand() {
-        for (CardCommands commands: CardCommands.values()) {
+        for (CardCommands commands : CardCommands.values()) {
             if (commands.name().equals(input.toUpperCase())) {
                 return true;
             }
@@ -36,7 +38,7 @@ public class UserInput {
     }
 
     public boolean isValidCardSuits() {
-        for (CardSuits suits: CardSuits.values()) {
+        for (CardSuits suits : CardSuits.values()) {
             if (suits.name().equals(input.toUpperCase()) || suits.getGetSuit().equals(input.toUpperCase())) {
                 return true;
             }
@@ -47,8 +49,8 @@ public class UserInput {
     public boolean isValidCardValue() {
         // write test case for this later,
         // this I realize have a bit more work put into it.
-        for (CardValue value: CardValue.values()) {
-            for (int num: value.getCardValue()) {
+        for (CardValue value : CardValue.values()) {
+            for (int num : value.getCardValue()) {
             }
         }
         return false;
@@ -65,6 +67,5 @@ public class UserInput {
         }
         return "Invalid command";
     }
-
 
 }
