@@ -58,11 +58,11 @@ public class GameMessages {
     // Points
 
     public final static String userPoints(int i) {
-        return "User Points:" + 0;
+        return "User Points:" + i;
     }
 
     public final static String dealerPoints(int i) {
-        return "Dealer Points" + 0;
+        return "Dealer Points" + i;
     }
 
     public final static String lost= "You lose \n";
