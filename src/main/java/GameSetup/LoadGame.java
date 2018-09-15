@@ -2,6 +2,7 @@ package GameSetup;
 
 import ReaderTypes.DirectoryReader;
 import ReaderTypes.FileReader;
+import Text_Based_UI.Display;
 import Text_Based_UI.GameMessages;
 import Text_Based_UI.IntroScreenUI;
 import enumCardTypes.CardCommands;
@@ -40,10 +41,11 @@ public class LoadGame {
         // shuffle the deck, this will have to implement the AI of the dealer
         DealCard dealCard = new DealCard();
         Scanner in = new Scanner(System.in);
+        PointCount count = new PointCount();
         String inputStr;
         CardCommands commands;
         System.out.print(GameMessages.Game_started);
-        displayGame(dealCard);
+        Display.displayGame(dealCard);
 
         while (in.hasNext()) {
             inputStr = in.next();
@@ -58,18 +60,25 @@ public class LoadGame {
                 break;
             }
 
+            if (dealCard.getUser().checkBurst()) {
 
-            displayGame(dealCard);
+                Display.displayResult(dealCard);
+                System.out.println(GameMessages.User_busts);
+                break;
+            }
+
+            // add AI move here
+
+            if (dealCard.getDealer().checkBurst()) {
+                Display.displayResult(dealCard);
+                System.out.println(GameMessages.Dealer_busts);
+            }
+
+
+
+            Display.displayGame(dealCard);
         }
 
-    }
-
-    private void displayGame(DealCard dealCard) {
-        System.out.println(GameMessages.outline);
-        System.out.println(GameMessages.examCard);
-        System.out.println(GameMessages.dealerCards(dealCard.getDealer().getDealerHand().size()));
-        System.out.println(GameMessages.displayPlayerCards(dealCard));
-        System.out.println(GameMessages.User_Options);
     }
 
 

@@ -13,11 +13,13 @@ public class DealCard {
     private User user;
     private Dealer dealer;
     private CardDeck deck;
+    private PointCount count;
 
     public DealCard() {
         this.deck = new CardDeck();
         this.user = new User();
         this.dealer = new Dealer();
+        this.count = new PointCount();
         Collections.shuffle(this.deck.getCardDeck());
         givePlayersCards();
     }
@@ -68,6 +70,5 @@ public class DealCard {
     public ArrayList<Card> deckStatus() {
         return this.deck.getCardDeck();
     }
-
 
 }
