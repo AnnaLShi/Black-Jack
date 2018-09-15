@@ -1,4 +1,4 @@
-import CardBehaviour.Card;
+import GameSetup.CardBehaviour.Card;
 import enumCardTypes.CardTypes;
 import enumCardTypes.CardValue;
 import org.junit.jupiter.api.DisplayName;

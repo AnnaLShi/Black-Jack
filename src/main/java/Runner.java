@@ -4,8 +4,8 @@ import GameSetup.LoadGame;
 public class Runner {
     public static void main (String []args) {
         // this loads the game
-        LoadGame load = new LoadGame();
-        load.start_application();
+         LoadGame load = new LoadGame();
+         load.start_application();
     }
 
 }

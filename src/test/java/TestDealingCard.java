@@ -1,5 +1,6 @@
-import CardBehaviour.Card;
-import CardBehaviour.CardDeck;
+import GameSetup.CardBehaviour.Card;
+import GameSetup.CardBehaviour.CardDeck;
+
 import GameSetup.DealCard;
 import GameSetup.Dealer;
 import GameSetup.User;

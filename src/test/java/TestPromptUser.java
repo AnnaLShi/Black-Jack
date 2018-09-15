@@ -1,5 +1,5 @@
-import CardBehaviour.Card;
-import CardBehaviour.CardDeck;
+import GameSetup.CardBehaviour.Card;
+import GameSetup.CardBehaviour.CardDeck;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// this a security thing
+
 public class TestUserInput {
     @Test
     @DisplayName("Check that java has read the method correctly")

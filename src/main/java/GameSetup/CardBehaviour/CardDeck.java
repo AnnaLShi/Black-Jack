@@ -1,4 +1,4 @@
-package CardBehaviour;
+package GameSetup.CardBehaviour;
 
 import enumCardTypes.CardRules;
 import enumCardTypes.CardSuits;
@@ -54,6 +54,10 @@ public class CardDeck {
         }
 
         return cardType;
+    }
+
+    public void deleteCard(int location) {
+        this.cardDeck.remove(location);
     }
 
     public boolean hasJoker() {

@@ -1,4 +1,4 @@
-package CardBehaviour;
+package GameSetup.CardBehaviour;
 
 import enumCardTypes.CardTypes;
 import enumCardTypes.CardValue;
@@ -23,7 +23,7 @@ public class Card {
             this.isheld = false;
         }
         public String getCardSuit() {
-            return suit.name();
+            return suit.getSuit();
         }
         public void setCardValue(CardValue value) {
             this.value = value;
