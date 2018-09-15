@@ -13,6 +13,10 @@ public class Dealer {
         this.hand = new ArrayList<Card>();
         this.pointCount = new PointCount();
     }
+    public void play() {
+
+    }
+
     public ArrayList<Card> getDealerHand () {
         return this.hand;
     }
