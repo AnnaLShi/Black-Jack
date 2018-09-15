@@ -23,7 +23,7 @@ public class DirectoryReader {
     // change this to a String
     public String printArrayListFiles() {
         String newFileList = "";
-        for (String list: this.fileslist) {
+        for (String list : this.fileslist) {
             newFileList += list + "\n";
         }
         return newFileList;
