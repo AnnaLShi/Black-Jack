@@ -50,7 +50,7 @@ public class FileReader {
 
     private boolean checkValidCommands(String command) {
         for (CardSuits suit: CardSuits.values()) {
-            if (suit.getGetSuit().equals(command) || suit.name().equals(command.toUpperCase())) {
+            if (suit.getSuit().equals(command) || suit.name().equals(command.toUpperCase())) {
                 return true;
             }
         }

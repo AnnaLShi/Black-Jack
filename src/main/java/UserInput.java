@@ -39,7 +39,7 @@ public class UserInput {
 
     public boolean isValidCardSuits() {
         for (CardSuits suits : CardSuits.values()) {
-            if (suits.name().equals(input.toUpperCase()) || suits.getGetSuit().equals(input.toUpperCase())) {
+            if (suits.name().equals(input.toUpperCase()) || suits.getSuit().equals(input.toUpperCase())) {
                 return true;
             }
         }

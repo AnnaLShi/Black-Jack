@@ -1,20 +1,21 @@
 package GameSetup;
 
-import CardBehaviour.Card;
+import GameSetup.CardBehaviour.Card;
 
 import java.util.ArrayList;
 
 public class User {
+    private ArrayList<Card> hand;
 
     public User() {
-
+        this.hand = new ArrayList<Card>();
     }
 
     public ArrayList<Card> getUserHand () {
-        return null;
+        return hand;
     }
 
-    public boolean addCard(Card card) {
-        return false;
+    public void addCard(Card card) {
+        hand.add(card);
     }
 }

@@ -12,7 +12,7 @@ public enum CardSuits{
         this.getSuit = getSuit;
     }
 
-    public String getGetSuit() {
+    public String getSuit() {
         return getSuit;
     }
 }
