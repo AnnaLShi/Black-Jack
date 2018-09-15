@@ -1,5 +1,6 @@
 package GameSetup;
 
+
 import GameSetup.CardBehaviour.Card;
 
 import java.util.ArrayList;
@@ -15,8 +16,7 @@ public class Dealer {
         return this.hand;
     }
 
-    public boolean addCard(Card card) {
+    public void addCard(Card card) {
         hand.add(card);
-        return false;
     }
 }
