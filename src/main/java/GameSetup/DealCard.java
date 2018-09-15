@@ -4,6 +4,7 @@ package GameSetup;
 import GameSetup.CardBehaviour.Card;
 import GameSetup.CardBehaviour.CardDeck;
 import ReaderTypes.FileReader;
+import enumCardTypes.CardValue;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,12 +30,29 @@ public class DealCard {
 
     }
 
-    public DealCard(String test) {
-
+    public DealCard(String testType) {
+        // this is for mostly testing purposes
+        // this is to see seperate card adding
+        this.deck = new CardDeck();
+        this.dealer = new Dealer();
+        this.user = new User();
+        this.count = new PointCount();
+        Collections.shuffle(this.deck.getCardDeck());
     }
 
     public void playDealer() {
+         while (this.dealer.getPointCount() <= 16 || checksoft17()) {
+            hitDealerCalled();
+         }
+    }
 
+    private boolean checksoft17() {
+        for (Card card: this.dealer.getDealerHand()) {
+            if (card.getPointValue().name().equals(CardValue.ACE.name()) && dealer.getPointCount() == 17) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void givePlayersCards() {
@@ -49,8 +67,13 @@ public class DealCard {
         this.dealer.addCard(getFirstCard());
         this.deck.deleteCard(0);
     }
-    public void hitCalled() {
+    public void hitUserCalled() {
         this.user.addCard(getFirstCard());
+        this.deck.deleteCard(0);
+    }
+
+    public void hitDealerCalled() {
+        this.dealer.addCard(getFirstCard());
         this.deck.deleteCard(0);
     }
 
