@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class PointCount {
     private int maximumAmount = 21;
+
     public PointCount() {
         super();
     }
