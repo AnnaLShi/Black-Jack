@@ -11,6 +11,7 @@ public class GameMessages {
     public final static String Stand_called = "Stand Called \n";
     public final static String MaxWinningPoints= "You have 21 points, You can only S (Stand) \n";
     public final static String User_busts = "You've gone over 21 points, You Lose \n";
+    public final static String Dealer_busts = "Dealer busts, You win \n";
     public final static String User_Options = "Would you Hit (H) or Stand (S)?";
 
 
@@ -28,12 +29,20 @@ public class GameMessages {
         return  "Your Cards: " + display + "\n";
     }
 
+    public final static String displayDealerCards(DealCard dealCard) {
+        String display = "";
+        for (Card card: dealCard.getDealer().getDealerHand()) {
+            display += card.getCardSuit() + card.getCardType().getCardType() + " ";
+        }
+        return  "Dealer Cards: " + display + "\n";
+    }
+
     public final static String getCardFullName(String string) {
         return "Card: " + string + "\n";
     }
 
-    public final static String amountWorth() {
-        return "This is card is Worth ";
+    public final static String amountWorth(int amount) {
+        return "Card Total " + amount;
     }
         //dealer
     public final static String dealerCards(int size) {
