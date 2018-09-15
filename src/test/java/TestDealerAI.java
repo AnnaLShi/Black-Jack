@@ -13,36 +13,30 @@ public class TestDealerAI {
     @Test
     @DisplayName("Test for another card called when there's 16")
     public void checkDealerHits() {
-        Dealer deal = new Dealer();
-        Card c1 = new Card(null, CardValue.ACE, null);
-        Card c2 = new Card(null, CardValue.THREE, null);
-        Card c3 = new Card(null, CardValue.TWO, null);
+        DealCard deal = new DealCard();
+        deal.playDealer();
+        assertEquals(4, deal.getDealer().getDealerHand().size());
 
-        deal.addCard(c1);
-        deal.addCard(c2);
-        deal.addCard(c3);
-
-        deal.play();
-
-        assertEquals(4, deal.getDealerHand().size());
 
     }
 
     @Test
     @DisplayName("Test soft 17")
     public void TestSoft17() {
-        Dealer deal = new Dealer();
+
+        DealCard deal = new DealCard("custom");
+
         Card c1 = new Card(null, CardValue.ACE, null);
         Card c2 = new Card(null, CardValue.FOUR, null);
         Card c3 = new Card(null, CardValue.TWO, null);
 
-        deal.addCard(c1);
-        deal.addCard(c2);
-        deal.addCard(c3);
-        deal.play();
 
+        deal.getDealer().addCard(c1);
+        deal.getDealer().addCard(c2);
+        deal.getDealer().addCard(c3);
+        deal.playDealer();
 
-             assertEquals(4, deal.getDealerHand().size());
+        assertEquals(4, deal.getDealer().getDealerHand().size());
 
     }
 }

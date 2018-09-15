@@ -29,6 +29,14 @@ public class DealCard {
 
     }
 
+    public DealCard(String test) {
+
+    }
+
+    public void playDealer() {
+
+    }
+
     private void givePlayersCards() {
         this.user.addCard(getFirstCard());
         this.deck.deleteCard(0);
