@@ -239,10 +239,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="952" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="951" />
+    <option name="width" value="978" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -331,7 +331,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="maven&#9;ACTION&#9;ActivateMavenProjectsToolWindow&#10;mave&#9;ACTION&#9;ActivateMavenProjectsToolWindow&#10;mav&#9;ACTION&#9;ActivateMavenProjectsToolWindow&#10;Runn&#9;RUN_CONFIGURATION&#9;Runner&#10;card&#9;FILE&#9;file://C:/Users/Anna/Documents/IntellijProjects/Black Jack/src/main/java/CardDeck.java&#10;rules&#9;FILE&#9;file://C:/Users/Anna/Documents/IntellijProjects/Black Jack/src/main/java/CardRules/Rules.java&#10;Rules&#9;FILE&#9;file://C:/Users/Anna/Documents/IntellijProjects/Black Jack/src/main/java/enumCardTypes/CardRules.java&#10;Value&#9;FILE&#9;file://C:/Users/Anna/Documents/IntellijProjects/Black Jack/src/main/java/enumCardTypes/CardValue.java&#10;CArd&#9;FILE&#9;file://C:/Users/Anna/Documents/IntellijProjects/Black Jack/src/main/java/Card.java&#10;ma&#9;ACTION&#9;ActivateMavenProjectsToolWindow" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537034384813" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537041958603" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="TEXT" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="project.structure.last.edited" value="Project" />
@@ -356,7 +356,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestDealingCard.checkCardNotRemoveFromPlay">
+  <component name="RunManager" selected="JUnit.TestDealingCard">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -449,8 +449,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestDealingCard.checkCardNotRemoveFromPlay" />
         <item itemvalue="JUnit.TestDealingCard" />
+        <item itemvalue="JUnit.TestDealingCard.checkCardNotRemoveFromPlay" />
         <item itemvalue="JUnit.TestDealingCard.checkGivenTwoCards" />
         <item itemvalue="Application.Runner" />
         <item itemvalue="JUnit.TestFileDisplay" />
