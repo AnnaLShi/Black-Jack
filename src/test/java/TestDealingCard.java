@@ -2,8 +2,8 @@ import GameSetup.CardBehaviour.Card;
 import GameSetup.CardBehaviour.CardDeck;
 
 import GameSetup.DealCard;
-import GameSetup.Dealer;
-import GameSetup.User;
+import GameSetup.Players.Dealer;
+import GameSetup.Players.User;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -21,8 +21,8 @@ public class TestDealingCard {
         Dealer dealer = deal.getDealer();
 
         ini_play(user, dealer, deal);
-        assertNotNull(user.getUserHand());
-        assertNotNull(dealer.getDealerHand());
+        assertNotNull(user.getHand());
+        assertNotNull(dealer.getHand());
     }
     @Test
     @DisplayName("Check If card exists in any circumstances")
@@ -36,8 +36,8 @@ public class TestDealingCard {
         ini_play(user, dealer, deal);
         ArrayList<Card> test = new ArrayList<Card>();
 
-        test.addAll(deal.getUser().getUserHand());
-        test.addAll(deal.getDealer().getDealerHand());
+        test.addAll(deal.getUser().getHand());
+        test.addAll(deal.getDealer().getHand());
         test.addAll(deal.deckStatus());
 
         assertEquals(deck.getCardDeck().size(), test.size());
@@ -64,6 +64,6 @@ public class TestDealingCard {
        deal.hitUserCalled();
         User user = deal.getUser();
 
-       assertEquals(3, user.getUserHand().size());
+       assertEquals(3, user.getHand().size());
     }
 }

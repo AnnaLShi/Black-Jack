@@ -3,6 +3,8 @@ package GameSetup;
 
 import GameSetup.CardBehaviour.Card;
 import GameSetup.CardBehaviour.CardDeck;
+import GameSetup.Players.Dealer;
+import GameSetup.Players.User;
 import ReaderTypes.FileReader;
 import enumCardTypes.CardValue;
 
@@ -32,14 +34,14 @@ public class DealCard {
     }
 
     public boolean blackJackUserDealerEquals() {
-        if (this.dealer.getDealerHand().size() == 2 && this.dealer.getPointCount() == black_jack) {
+        if (this.dealer.getHand().size() == 2 && this.dealer.getPointCount() == black_jack) {
             return true;
         }
         return false;
     }
 
     public boolean checkforBlackJackInUser() {
-        if (this.user.getUserHand().size() ==2 && this.user.getPointCount() == black_jack) {
+        if (this.user.getHand().size() ==2 && this.user.getPointCount() == black_jack) {
             return true;
         }
         return false;
@@ -70,7 +72,7 @@ public class DealCard {
     }
 
     private boolean checksoft17() {
-        for (Card card: this.dealer.getDealerHand()) {
+        for (Card card: this.dealer.getHand()) {
             if (card.getPointValue().name().equals(CardValue.ACE.name()) && dealer.getPointCount() == 17) {
                 return true;
             }

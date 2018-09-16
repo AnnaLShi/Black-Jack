@@ -1,6 +1,5 @@
 package GameSetup;
 
-import GameSetup.CardBehaviour.Card;
 import ReaderTypes.DirectoryReader;
 import ReaderTypes.FileReader;
 import Text_Based_UI.Display;

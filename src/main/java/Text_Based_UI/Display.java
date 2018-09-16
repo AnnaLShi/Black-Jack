@@ -1,7 +1,6 @@
 package Text_Based_UI;
 
 import GameSetup.DealCard;
-import GameSetup.Game;
 
 
 // this shows all the display classes
@@ -10,7 +9,7 @@ public class Display {
         System.out.println(GameMessages.outline);
         System.out.println(GameMessages.dealerPoints(dealCard.getDealer().getPoints()));
         System.out.println(GameMessages.examCard);
-        System.out.println(GameMessages.dealerCards(dealCard.getDealer().getDealerHand().size()));
+        System.out.println(GameMessages.dealerCards(dealCard.getDealer().getHand().size()));
 
 
         System.out.println(GameMessages.userPoints(dealCard.getUser().getPoints()));

@@ -1,11 +1,8 @@
 import GameSetup.CardBehaviour.Card;
 import GameSetup.DealCard;
-import GameSetup.Dealer;
 import enumCardTypes.CardValue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -23,7 +20,7 @@ public class TestDealerAI {
         deal.getDealer().addCard(c3);
         deal.playDealer();
         // this usually works
-        assertEquals(4, deal.getDealer().getDealerHand().size());
+        assertEquals(4, deal.getDealer().getHand().size());
 
 
     }
@@ -44,6 +41,6 @@ public class TestDealerAI {
         deal.getDealer().addCard(c3);
         deal.playDealer();
 
-        assertEquals(4, deal.getDealer().getDealerHand().size());
+        assertEquals(4, deal.getDealer().getHand().size());
     }
 }

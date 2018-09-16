@@ -1,5 +1,6 @@
 package GameSetup;
 
+import GameSetup.DealCard;
 import Text_Based_UI.Display;
 import Text_Based_UI.GameMessages;
 import Text_Based_UI.IntroScreenUI;
