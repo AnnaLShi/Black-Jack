@@ -1,5 +1,6 @@
 package GameSetup;
 
+import GameSetup.Screens.StartScreen;
 import ReaderTypes.DirectoryReader;
 import ReaderTypes.FileReader;
 import Text_Based_UI.Display;
@@ -16,24 +17,31 @@ public class LoadGame {
     }
 
     public void start_application() {
+
+        StartScreen start = new StartScreen();
+        start.showStartIntroduction();
+
         Scanner in = new Scanner(System.in);
         String inputStr;
-        System.out.println(IntroScreenUI.introToGame);
-
 
         while (in.hasNext()) {
             // This is the intial screen of the the game
             inputStr = in.next();
-            if (inputStr.toUpperCase().equals(CardCommands.HELP.getCommands()) || inputStr.toUpperCase().equals(CardCommands.HELP.name())) {
-                System.out.println(IntroScreenUI.help_info);
+            if (start.isHelpChosen(inputStr)) {
             }
 
-            if (inputStr.toUpperCase().equals(CardCommands.FILE.getCommands()) || inputStr.toUpperCase().equals(CardCommands.FILE.name())) {
+            else if (start.isFileChose(inputStr)) {
                 file_loader();
             }
 
-            if (inputStr.toUpperCase().equals(CardCommands.CONSOLE.getCommands()) || inputStr.toUpperCase().equals(CardCommands.CONSOLE.name())) {
+            else if (start.isConsoleChosen(inputStr)) {
                 start_game();
+            }
+            else if (start.isQuitChosen(inputStr)) {
+                break;
+            }
+            else if (start.isInvalidInput(inputStr)) {
+
             }
         }
     }
