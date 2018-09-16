@@ -50,6 +50,5 @@ public class TestPoints {
 
         PointCount count = new PointCount();
         assertEquals(CardValue.FOUR.getCardValue()[0] + CardValue.EIGHT.getCardValue()[0] + CardValue.KING.getCardValue()[0], count.add(cards));
-
     }
 }

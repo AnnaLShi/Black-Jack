@@ -14,7 +14,6 @@ public class TestRuleReader {
         // check the size of the default size
         RulesReader rulesReader = new RulesReader();
         rulesReader.deckSize();
-
         assertEquals(52, rulesReader.deckSize());
     }
 

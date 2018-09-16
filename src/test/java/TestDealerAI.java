@@ -45,6 +45,5 @@ public class TestDealerAI {
         deal.playDealer();
 
         assertEquals(4, deal.getDealer().getDealerHand().size());
-
     }
 }
