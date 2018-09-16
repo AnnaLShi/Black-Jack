@@ -10,7 +10,9 @@ public enum CardCommands {
     HELP("H"),
     HIT("H"),
     STAND("S"),
-    BACK("B");
+    BACK("B"),
+    YES("Y"),
+    NO("N")
     ;
 
     private String commands;

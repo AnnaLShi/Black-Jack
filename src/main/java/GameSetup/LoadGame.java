@@ -40,65 +40,26 @@ public class LoadGame {
 
     private void start_game() {
         // shuffle the deck, this will have to implement the AI of the dealer
-        DealCard dealCard = new DealCard();
-        Scanner in = new Scanner(System.in);
-        PointCount count = new PointCount();
-        String inputStr;
-        CardCommands commands;
         System.out.print(GameMessages.Game_started);
-        Display.displayGame(dealCard);
-
+        Scanner in = new Scanner(System.in);
+        Game game = new Game();
+        String cont;
+        DealCard dealCard = new DealCard();
+        game.run(dealCard);
 
         while (in.hasNext()) {
-            inputStr = in.next();
-            if (inputStr.toUpperCase().equals(CardCommands.HIT.getCommands()) || inputStr.toUpperCase().equals(CardCommands.HIT.name())) {
-                System.out.println(GameMessages.User_hit_called);
-                dealCard.hitUserCalled();
-            }
-            if (inputStr.toUpperCase().equals(CardCommands.BACK.name()) || inputStr.toUpperCase().equals(CardCommands.BACK.getCommands())) {
-                System.out.println(GameMessages.outline);
-                System.out.println(IntroScreenUI.Back_To_Main_Menu);
-                System.out.println(IntroScreenUI.introToGame_Hello);
+            cont = in.next();
+            if (cont.toUpperCase().equals(CardCommands.NO.name()) || cont.toUpperCase().equals(CardCommands.NO.getCommands())) {
+                Display.returnToMainMenu();
                 break;
             }
-
-            if (dealCard.getUser().checkBurst()) {
-                Display.displayResult(dealCard);
-                System.out.println(GameMessages.User_busts);
-                break;
+            else if (cont.toUpperCase().equals(CardCommands.YES.name()) || cont.toUpperCase().equals(CardCommands.YES.getCommands())) {
+                dealCard.resetDeckAndHands();
+                game.run(dealCard);
             }
-
-            if (inputStr.toUpperCase().equals(CardCommands.STAND.name()) || inputStr.toUpperCase().equals(CardCommands.STAND.getCommands()) ) {
-
-                dealCard.playDealer();
-
-                if (dealCard.getDealer().checkBurst()) {
-                    Display.displayResult(dealCard);
-                    System.out.println(GameMessages.Dealer_busts);
-                    break;
-                }
-
-
-                if (dealCard.getUser().getPointCount() > dealCard.getDealer().getPointCount()) {
-                    Display.displayWinning(dealCard);
-                    break;
-
-                }
-
-                if (dealCard.getUser().getPointCount() < dealCard.getDealer().getPointCount()) {
-                    Display.displayLosing(dealCard);
-                    break;
-
-                }
-                if (dealCard.getUser().getPointCount() == dealCard.getDealer().getPointCount()) {
-                    Display.displayLosing(dealCard);
-                    break;
-                }
-
+            else {
+                System.out.println("Invalid Command Entered \n");
             }
-
-
-            Display.displayGame(dealCard);
         }
 
     }

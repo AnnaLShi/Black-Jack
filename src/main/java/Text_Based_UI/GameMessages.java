@@ -58,14 +58,22 @@ public class GameMessages {
     // Points
 
     public final static String userPoints(int i) {
-        return "User Points:" + i;
+        return "                                            User Points: "  + i;
     }
 
     public final static String dealerPoints(int i) {
-        return "Dealer Points" + i;
+        return "                                            Dealer Points: " + i;
     }
 
     public final static String lost= "You lose \n";
     public final static String win = "You win \n";
+    public final static String BJ_win_user = "User got Black Jack, you win \n";
+
+    public final static String BJ_win_dealer = "Dealer Got Black Jack, you lose \n";
+
+
+    // continue playing
+
+    public  final static String contPlay = "Would you like to continue play? \n";
 
 }

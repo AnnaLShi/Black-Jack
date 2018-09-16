@@ -15,6 +15,7 @@ public class DealCard {
     private Dealer dealer;
     private CardDeck deck;
     private PointCount count;
+    private int black_jack = 21;
 
     public DealCard() {
         this.deck = new CardDeck();
@@ -31,10 +32,16 @@ public class DealCard {
     }
 
     public boolean blackJackUserDealerEquals() {
+        if (this.dealer.getDealerHand().size() == 2 && this.dealer.getPointCount() == black_jack) {
+            return true;
+        }
         return false;
     }
 
-    public boolean checkforBlackJack() {
+    public boolean checkforBlackJackInUser() {
+        if (this.user.getUserHand().size() ==2 && this.user.getPointCount() == black_jack) {
+            return true;
+        }
         return false;
     }
 
@@ -46,6 +53,14 @@ public class DealCard {
         this.user = new User();
         this.count = new PointCount();
         Collections.shuffle(this.deck.getCardDeck());
+    }
+
+    public void resetDeckAndHands() {
+        this.deck = new CardDeck();
+        Collections.shuffle(this.deck.getCardDeck());
+        this.user.removeAllCards();
+        this.dealer.removeAllCards();
+        givePlayersCards();
     }
 
     public void playDealer() {

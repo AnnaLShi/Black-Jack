@@ -19,7 +19,7 @@ public class PointCount {
         // check for two aces
         for (Card card: cards ) {
             if (card.getPointValue().name().equals("ACE")) {
-                if (total_points < maximumAmount && total_points + card.getPointValue().getCardValue()[1] < maximumAmount) {
+                if (total_points + card.getPointValue().getCardValue()[1] <= maximumAmount) {
                     total_points += card.getPointValue().getCardValue()[1];
                 }
                 else {

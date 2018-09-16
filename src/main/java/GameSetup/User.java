@@ -40,4 +40,9 @@ public class User {
     public boolean checkBurst() {
         return getPointCount() > this.pointCount.getMaximumAmount();
     }
+
+    public void removeAllCards() {
+        this.hand.clear();
+        this.hand = new ArrayList<Card>();
+    }
 }
