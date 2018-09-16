@@ -59,15 +59,17 @@ public class TestBlackJackWins {
         dealing.getDealer().addCard(new Card(null, CardValue.ACE, null));
         dealing.getDealer().addCard(new Card(null, CardValue.JACK, null));
 
-        assertTrue(dealing.checkforBlackJack());
+        assertFalse(dealing.checkforBlackJackInUser());
 
+
+        dealing = new DealCard("test");
         dealing.getDealer().addCard(new Card(null, CardValue.ACE, null));
         dealing.getDealer().addCard(new Card(null, CardValue.JACK, null));
-        assertFalse(dealing.checkforBlackJack());
+        assertFalse(dealing.checkforBlackJackInUser());
 
         dealing.getUser().addCard(new Card(null, CardValue.ACE, null));
         dealing.getUser().addCard(new Card(null, CardValue.JACK, null));
-        assertTrue(dealing.checkforBlackJack());
+        assertTrue(dealing.checkforBlackJackInUser());
     }
 
 }
