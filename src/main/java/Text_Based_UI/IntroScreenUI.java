@@ -37,4 +37,8 @@ public final class IntroScreenUI {
 
     // In development messages
     public final static String work_on_this = "... I can't belive, this can't be... \n";
+
+    public final static String invalid_message(String str) {
+        return "Warning this is an Invalid Console Command: " + str;
+    }
 }

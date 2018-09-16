@@ -12,7 +12,8 @@ public enum CardCommands {
     STAND("S"),
     BACK("B"),
     YES("Y"),
-    NO("N")
+    NO("N"),
+    QUIT("Q");
     ;
 
     private String commands;
