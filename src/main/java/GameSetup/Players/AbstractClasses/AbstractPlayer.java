@@ -5,6 +5,7 @@ import GameSetup.PointCount;
 
 import java.util.ArrayList;
 
+
 public abstract class AbstractPlayer {
     private ArrayList<Card> hand;
     private PointCount pointCount;
@@ -40,12 +41,11 @@ public abstract class AbstractPlayer {
         return getPointCount() > this.pointCount.getMaximumAmount();
     }
 
-    public void removeAllCards() {
-        this.hand.clear();
-        this.hand = new ArrayList<Card>();
-    }
-
     public void removeCard(int i) {
         hand.remove(hand.get(i));
+    }
+
+    public void removeAllCards() {
+        this.hand.clear();
     }
 }
