@@ -28,7 +28,6 @@ public class LoadGame {
             // This is the intial screen of the the game
             inputStr = in.next();
             if (start.isHelpChosen(inputStr)) {
-
             }
 
             else if (start.isFileChose(inputStr)) {
