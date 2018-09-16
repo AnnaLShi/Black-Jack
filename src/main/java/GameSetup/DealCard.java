@@ -28,8 +28,13 @@ public class DealCard {
         givePlayersCards();
     }
 
+
     // programmed for later
     public DealCard(FileReader file) {
+        this.deck = new CardDeck(file.getCommands());
+        this.user = new User();
+        this.dealer = new Dealer();
+        this.count = new PointCount();
 
     }
 
@@ -80,7 +85,7 @@ public class DealCard {
         return false;
     }
 
-    private void givePlayersCards() {
+    public void givePlayersCards() {
         this.user.addCard(getFirstCard());
         this.deck.deleteCard(0);
 

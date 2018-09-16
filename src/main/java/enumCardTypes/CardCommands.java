@@ -7,7 +7,7 @@ public enum CardCommands {
     DEALER ("DEALER"),
     FILE ("F"),
     CONSOLE("C"),
-    HELP("H"),
+    HELP("HELP"),
     HIT("H"),
     STAND("S"),
     BACK("B"),

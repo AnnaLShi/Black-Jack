@@ -1,13 +1,11 @@
 import GameSetup.CardBehaviour.Card;
+import GameSetup.FileInterpreter;
 import ReaderTypes.CustomReader;
-import ReaderTypes.DirectoryReader;
 import ReaderTypes.FileReader;
-import enumCardTypes.CardCommands;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -39,6 +37,7 @@ public class TestFileInputCommands {
     public void checkFileCheckHands() {
         FileInterpreter fileInterpreter = new FileInterpreter(new FileReader("file1.in"));
         CustomReader getFile = new CustomReader("src\\test\\java\\TestIndividualCard\\CardHandSize","custom");
+        fileInterpreter.fileDealCards();
         String str = null;
         try {
             str = getFile.getReadFile().get(0);
@@ -53,16 +52,18 @@ public class TestFileInputCommands {
     @Test
     @DisplayName("Check for Hit")
     public void checkHit() {
-        FileInterpreter fileInterpreter = new FileInterpreter(new FileReader("File3.in"));
-
+        FileInterpreter fileInterpreter = new FileInterpreter(new FileReader("file3.in"));
+        fileInterpreter.runFile();
         CustomReader getFile = new CustomReader("src\\test\\java\\TestIndividualCard\\CardHandSize","custom");
         String str = null;
+
         try {
             str = getFile.getReadFile().get(0);
         } catch (IOException e) {
             System.out.println("Yup something went totally went wrong");
         }
-        assertEquals(Integer.parseInt(str), fileInterpreter.getDealCard().getDealer().getHand().size());
+
+        assertEquals(4, fileInterpreter.getDealCard().getDealer().getHand().size());
         getFile = new CustomReader("src\\test\\java\\TestIndividualCard\\HitSize","custom");
         str = null;
         try {
@@ -71,13 +72,13 @@ public class TestFileInputCommands {
             System.out.println("Yup something went totally went wrong");
         }
 
-        assertEquals(Integer.parseInt(str), fileInterpreter.getDealCard().getUser().getHand().size());
+        assertEquals(4, fileInterpreter.getDealCard().getUser().getHand().size());
     }
     @Test
     @DisplayName("Check for Stand")
     public void checkFileStand() {
         FileInterpreter fileInterpreter = new FileInterpreter(new FileReader("File2.in"));
-
+        fileInterpreter.runFile();
         CustomReader getFile = new CustomReader("src\\test\\java\\TestIndividualCard\\CardHandSize","custom");
         String str = null;
         try {
