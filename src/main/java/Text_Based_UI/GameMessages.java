@@ -23,7 +23,7 @@ public class GameMessages {
 
     public final static String displayPlayerCards(DealCard dealCard) {
         String display = "";
-        for (Card card: dealCard.getUser().getUserHand()) {
+        for (Card card: dealCard.getUser().getHand()) {
             display += card.getCardSuit() + card.getCardType().getCardType() + " ";
         }
         return  "Your Cards: " + display + "\n";
@@ -31,7 +31,7 @@ public class GameMessages {
 
     public final static String displayDealerCards(DealCard dealCard) {
         String display = "";
-        for (Card card: dealCard.getDealer().getDealerHand()) {
+        for (Card card: dealCard.getDealer().getHand()) {
             display += card.getCardSuit() + card.getCardType().getCardType() + " ";
         }
         return  "Dealer Cards: " + display + "\n";
