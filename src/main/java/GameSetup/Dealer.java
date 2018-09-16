@@ -23,6 +23,9 @@ public class Dealer {
         hand.add(card);
     }
 
+    public void removeCard(int i) {
+        hand.remove(hand.get(i));
+    }
     public int getPointCount() {
         return this.pointCount.add(this.hand);
     }

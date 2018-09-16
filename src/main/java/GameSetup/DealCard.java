@@ -30,6 +30,14 @@ public class DealCard {
 
     }
 
+    public boolean blackJackUserDealerEquals() {
+        return false;
+    }
+
+    public boolean checkforBlackJack() {
+        return false;
+    }
+
     public DealCard(String testType) {
         // this is for mostly testing purposes
         // this is to see seperate card adding
