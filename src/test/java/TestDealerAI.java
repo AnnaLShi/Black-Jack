@@ -23,7 +23,7 @@ public class TestDealerAI {
         deal.getDealer().addCard(c3);
         deal.playDealer();
         // this usually works
-        assertEquals(4, deal.getDealer().getDealerHand().size());
+        assertEquals(4, deal.getDealer().getHand().size());
 
 
     }
@@ -44,6 +44,6 @@ public class TestDealerAI {
         deal.getDealer().addCard(c3);
         deal.playDealer();
 
-        assertEquals(4, deal.getDealer().getDealerHand().size());
+        assertEquals(4, deal.getDealer().getHand().size());
     }
 }
