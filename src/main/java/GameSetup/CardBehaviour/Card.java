@@ -25,6 +25,9 @@ public class Card {
         public String getCardSuit() {
             return suit.getSuit();
         }
+        public void setSuit(CardSuits suit) {
+            this.suit = suit;
+        }
         public void setCardValue(CardValue value) {
             this.value = value;
         }

@@ -7,6 +7,7 @@ import Text_Based_UI.GameMessages;
 import Text_Based_UI.IntroScreenUI;
 import enumCardTypes.CardCommands;
 
+import java.io.FileInputStream;
 import java.util.Scanner;
 
 public class LoadGame {
@@ -66,10 +67,8 @@ public class LoadGame {
 
 
     private void start_game(FileReader reader) {
-
-
-
-
+        FileInterpreter file = new FileInterpreter(reader);
+        file.runFile();
     }
 
 

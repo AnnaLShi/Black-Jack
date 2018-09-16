@@ -5,6 +5,9 @@ import enumCardTypes.CardSuits;
 import enumCardTypes.CardTypes;
 import enumCardTypes.CardValue;
 
+import java.io.FileReader;
+import java.io.Reader;
+import java.security.AlgorithmParameterGenerator;
 import java.util.ArrayList;
 
 public class CardDeck {
@@ -26,6 +29,47 @@ public class CardDeck {
     public CardDeck() {
         this.rules = new Rules();
         this.cardDeck = initCardDeck();
+    }
+
+    public CardDeck(ArrayList<String> commands) {
+        this.rules = new Rules();
+        this.cardDeck = initCustomDeck(commands);
+    }
+
+    private ArrayList<Card> initCustomDeck(ArrayList<String> commands) {
+        this.cardDeck = new ArrayList<Card>();
+        for (String com: commands) {
+            if (com.length() > 1) {
+                this.cardDeck.add(findSpecifiedCard(com));
+            }
+        }
+
+        return  this.cardDeck;
+    }
+
+    private Card findSpecifiedCard(String com) {
+        Card card = new Card();
+        String num = "";
+        for (CardSuits suits: CardSuits.values()) {
+                if (Character.toString(com.charAt(0)).equals(suits.getSuit())) {
+                    card.setSuit(suits);
+                }
+        }
+
+        for (int i = 1; i < com.length(); i++) {
+            num += com.charAt(i);
+        }
+
+        for (CardValue value: CardValue.values()) {
+            for (CardTypes types: CardTypes.values()) {
+                if (value.name().equals(types.name()) && types.getCardType().equals(num)) {
+                    card.setCardType(types);
+                    card.setCardValue(value);
+                }
+            }
+        }
+
+        return card;
     }
 
 
