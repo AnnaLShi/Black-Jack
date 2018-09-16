@@ -2,8 +2,8 @@ import GameSetup.CardBehaviour.Card;
 import GameSetup.CardBehaviour.CardDeck;
 
 import GameSetup.DealCard;
-import GameSetup.Dealer;
-import GameSetup.User;
+import GameSetup.Players.Dealer;
+import GameSetup.Players.User;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

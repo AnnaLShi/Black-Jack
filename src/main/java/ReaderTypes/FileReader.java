@@ -81,8 +81,6 @@ public class FileReader {
         ArrayList<String> commandList = new ArrayList<String>();
         int j = 0;
         for (int i = 0; i < this.read.size(); i++) {
-            System.out.print(j++);
-            System.out.print( this.read.get(i));
             if (checkCommands(this.read.get(i))) {
                     commandList.add(this.read.get(i).toUpperCase());
             }
@@ -92,9 +90,6 @@ public class FileReader {
             }
         }
 
-       for (String str: commandList) {
-            System.out.println(str);
-        }
         return commandList;
     }
 

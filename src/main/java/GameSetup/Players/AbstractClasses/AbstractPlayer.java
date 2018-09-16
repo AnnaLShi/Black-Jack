@@ -1,4 +1,4 @@
-package GameSetup.AbstractClasses;
+package GameSetup.Players.AbstractClasses;
 
 import GameSetup.CardBehaviour.Card;
 import GameSetup.PointCount;

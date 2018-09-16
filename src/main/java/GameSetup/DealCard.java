@@ -3,6 +3,8 @@ package GameSetup;
 
 import GameSetup.CardBehaviour.Card;
 import GameSetup.CardBehaviour.CardDeck;
+import GameSetup.Players.Dealer;
+import GameSetup.Players.User;
 import ReaderTypes.FileReader;
 import enumCardTypes.CardValue;
 
