@@ -1,4 +1,4 @@
-import GameSetup.StartGame;
+import GameSetup.Screens.StartGame;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

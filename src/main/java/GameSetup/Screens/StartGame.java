@@ -1,4 +1,4 @@
-package GameSetup;
+package GameSetup.Screens;
 
 public class StartGame {
 
