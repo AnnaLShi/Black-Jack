@@ -21,4 +21,21 @@ public class Display {
         System.out.println("User " + GameMessages.amountWorth(dealCard.getUser().getPointCount()));
         System.out.println(GameMessages.displayPlayerCards(dealCard));
     }
+
+    public static void displayWinning(DealCard dealCard) {
+        displayResult(dealCard);
+        System.out.println(GameMessages.win);
+    }
+
+    public static void displayLosing(DealCard dealCard) {
+        displayResult(dealCard);
+        System.out.println(GameMessages.lost);
+    }
+
+    public static void returnToMainMenu() {
+        System.out.println(GameMessages.outline);
+        System.out.print(IntroScreenUI.Back_To_Main_Menu);
+        System.out.println(IntroScreenUI.introToGame_Hello);
+    }
+
 }

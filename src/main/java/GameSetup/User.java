@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class User {
     private ArrayList<Card> hand;
     private PointCount pointCount;
+    private int points;
 
     public User() {
         this.hand = new ArrayList<Card>();
@@ -26,6 +27,14 @@ public class User {
 
     public int getPointCount() {
         return this.pointCount.add(this.hand);
+    }
+
+    public void addPoints(int points) {
+        this.points += points;
+    }
+
+    public int getPoints() {
+        return points;
     }
 
     public boolean checkBurst() {

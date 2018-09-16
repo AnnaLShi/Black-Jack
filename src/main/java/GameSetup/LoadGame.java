@@ -1,5 +1,6 @@
 package GameSetup;
 
+import GameSetup.CardBehaviour.Card;
 import ReaderTypes.DirectoryReader;
 import ReaderTypes.FileReader;
 import Text_Based_UI.Display;
@@ -47,11 +48,12 @@ public class LoadGame {
         System.out.print(GameMessages.Game_started);
         Display.displayGame(dealCard);
 
+
         while (in.hasNext()) {
             inputStr = in.next();
             if (inputStr.toUpperCase().equals(CardCommands.HIT.getCommands()) || inputStr.toUpperCase().equals(CardCommands.HIT.name())) {
                 System.out.println(GameMessages.User_hit_called);
-                dealCard.hitCalled();
+                dealCard.hitUserCalled();
             }
             if (inputStr.toUpperCase().equals(CardCommands.BACK.name()) || inputStr.toUpperCase().equals(CardCommands.BACK.getCommands())) {
                 System.out.println(GameMessages.outline);
@@ -61,19 +63,39 @@ public class LoadGame {
             }
 
             if (dealCard.getUser().checkBurst()) {
-
                 Display.displayResult(dealCard);
                 System.out.println(GameMessages.User_busts);
                 break;
             }
 
-            // add AI move here
+            if (inputStr.toUpperCase().equals(CardCommands.STAND.name()) || inputStr.toUpperCase().equals(CardCommands.STAND.getCommands()) ) {
 
-            if (dealCard.getDealer().checkBurst()) {
-                Display.displayResult(dealCard);
-                System.out.println(GameMessages.Dealer_busts);
+                dealCard.playDealer();
+
+                if (dealCard.getDealer().checkBurst()) {
+                    Display.displayResult(dealCard);
+                    System.out.println(GameMessages.Dealer_busts);
+                    break;
+                }
+
+
+                if (dealCard.getUser().getPointCount() > dealCard.getDealer().getPointCount()) {
+                    Display.displayWinning(dealCard);
+                    break;
+
+                }
+
+                if (dealCard.getUser().getPointCount() < dealCard.getDealer().getPointCount()) {
+                    Display.displayLosing(dealCard);
+                    break;
+
+                }
+                if (dealCard.getUser().getPointCount() == dealCard.getDealer().getPointCount()) {
+                    Display.displayLosing(dealCard);
+                    break;
+                }
+
             }
-
 
 
             Display.displayGame(dealCard);
@@ -105,9 +127,7 @@ public class LoadGame {
             getFileName = in.next();
             reader = new FileReader(getFileName);
             if (getFileName.toUpperCase().equals(CardCommands.BACK.name()) || getFileName.toUpperCase().equals(CardCommands.BACK.getCommands())) {
-                System.out.println(GameMessages.outline);
-                System.out.print(IntroScreenUI.Back_To_Main_Menu);
-                System.out.println(IntroScreenUI.introToGame_Hello);
+                Display.returnToMainMenu();
                 break;
             }
             if (!reader.validateFileType()) {

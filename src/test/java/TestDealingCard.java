@@ -61,7 +61,7 @@ public class TestDealingCard {
     @DisplayName("Check Split after one number")
     public void checkHit() {
        DealCard deal = new DealCard();
-       deal.hitCalled();
+       deal.hitUserCalled();
         User user = deal.getUser();
 
        assertEquals(3, user.getUserHand().size());
