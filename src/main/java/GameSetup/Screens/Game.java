@@ -1,4 +1,4 @@
-package GameSetup;
+package GameSetup.Screens;
 
 import GameSetup.DealCard;
 import Text_Based_UI.Display;
