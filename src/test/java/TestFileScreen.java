@@ -1,4 +1,5 @@
 import GameSetup.Screens.FileScreen;
+import ReaderTypes.FileReader;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,9 +15,9 @@ public class TestFileScreen {
     @DisplayName("check Invalid File")
     public void checkInvalidFile() {
         FileScreen file = new FileScreen();
-        assertTrue(file.isInvalid("back"));
-        assertTrue(file.isInvalid("B"));
-        assertFalse(file.isInvalid("file1.in"));
+        assertTrue(file.isInvalid(new FileReader("back")));
+        assertTrue(file.isInvalid(new FileReader("B")));
+        assertFalse(file.isInvalid(new FileReader("file1.in")));
     }
 
 
@@ -24,9 +25,9 @@ public class TestFileScreen {
     @DisplayName("check Valid File")
     public void checkValidFile() {
         FileScreen file = new FileScreen();
-        assertTrue(file.isValid("file1.in"));
-        assertTrue(file.isValid("file2.in"));
-        assertTrue(file.isValid("file3.in"));
+        assertTrue(file.isValid(new FileReader("file1.in")));
+        assertTrue(file.isValid(new FileReader("file2.in")));
+        assertTrue(file.isValid(new FileReader("file3.in")));
     }
 
 

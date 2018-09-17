@@ -1,5 +1,6 @@
 package GameSetup;
 
+import GameSetup.Screens.FileScreen;
 import GameSetup.Screens.StartGame;
 
 import GameSetup.Screens.StartScreen;
@@ -32,7 +33,8 @@ public class LoadGame {
             }
 
             else if (start.isFileChose(inputStr)) {
-                file_loader();
+                FileScreen fileScreen = new FileScreen();
+                fileScreen.run();
             }
 
             else if (start.isConsoleChosen(inputStr)) {
@@ -46,41 +48,5 @@ public class LoadGame {
 
             }
         }
-    }
-
-
-
-    private void file_loader() {
-        System.out.println(IntroScreenUI.file_info);
-        Scanner in = new Scanner(System.in);
-        String getFileName;
-        FileReader reader;
-        DirectoryReader directory;
-
-        directory = new DirectoryReader("files");
-        System.out.println(directory.printArrayListFiles());
-
-        while (in.hasNext()) {
-            getFileName = in.next();
-            reader = new FileReader(getFileName);
-            if (getFileName.toUpperCase().equals(CardCommands.BACK.name()) || getFileName.toUpperCase().equals(CardCommands.BACK.getCommands())) {
-                Display.returnToMainMenu();
-                break;
-            }
-            if (!reader.validateFileType()) {
-                System.out.println(IntroScreenUI.file_invalid);
-                directory = new DirectoryReader("files");
-                System.out.println(directory.printArrayListFiles());
-
-            }
-
-            if (reader.validateFileType()) {
-                System.out.print(IntroScreenUI.alt_successful_file(getFileName));
-                StartGame game = new StartGame();
-                game.run(reader);
-            }
-
-        }
-
     }
 }
