@@ -1,7 +1,7 @@
 package GameSetup;
 
-import GameSetup.Screens.Game;
 import GameSetup.Screens.StartGame;
+
 import GameSetup.Screens.StartScreen;
 import ReaderTypes.DirectoryReader;
 import ReaderTypes.FileReader;
