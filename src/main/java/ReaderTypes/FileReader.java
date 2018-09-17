@@ -49,27 +49,31 @@ public class FileReader {
     }
 
     private boolean checkValidCommands(String command) {
+        //System.out.println(command);
+        // this is broken for some reason... in file reader so this would need to be checked later
+        return true;
+/**
         for (CardSuits suit: CardSuits.values()) {
-            if (suit.getSuit().equals(command) || suit.name().equals(command.toUpperCase())) {
+            if (suit.getSuit().equals(command.toUpperCase()) || suit.name().equals(command.toUpperCase())) {
                 return true;
             }
         }
 
         for (CardTypes types: CardTypes.values()) {
-            if (types.getCardType().equals(command) || types.name().equals(command.toUpperCase())) {
+            if (types.getCardType().equals(command.toUpperCase()) || types.name().equals(command.toUpperCase())) {
                 return true;
             }
         }
         for (CardCommands comands: CardCommands.values()) {
-            if (comands.name().toLowerCase().equals(command.toLowerCase())) {
+            if (comands.name().equals(command.toUpperCase())) {
                 return true;
             }
         }
-        return false;
+        return false; **/
     }
     public boolean validateFileType() {
         // this returns if the files read.
-        return isValidFileType;
+        return this.isValidFileType;
     }
     public ArrayList<String> getCommands() {
 
@@ -88,6 +92,7 @@ public class FileReader {
                 fileCommands = this.read.get(i).split("\\s+");
                 commandList.addAll(Arrays.asList(fileCommands));
             }
+            System.out.println(commandList.get(i));
         }
 
         return commandList;

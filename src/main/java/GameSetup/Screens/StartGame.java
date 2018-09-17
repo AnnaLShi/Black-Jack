@@ -1,6 +1,7 @@
 package GameSetup.Screens;
 
 import GameSetup.DealCard;
+import GameSetup.FileInterpreter;
 import ReaderTypes.FileReader;
 import Text_Based_UI.Display;
 import Text_Based_UI.GameMessages;
@@ -36,6 +37,8 @@ public class StartGame {
     }
 
     public void run(FileReader reader) {
+        FileInterpreter interpt = new FileInterpreter(reader);
+        interpt.runFile();
 
     }
     public boolean checkNo(String in){
