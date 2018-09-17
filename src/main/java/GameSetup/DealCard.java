@@ -104,6 +104,7 @@ public class DealCard {
     }
 
     public void hitDealerCalled() {
+        System.out.println(getFirstCard().getCardSuit());
         this.dealer.addCard(getFirstCard());
         this.deck.deleteCard(0);
     }
