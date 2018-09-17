@@ -77,7 +77,7 @@ public class LoadGame {
             if (reader.validateFileType()) {
                 System.out.print(IntroScreenUI.alt_successful_file(getFileName));
                 StartGame game = new StartGame();
-                game.run();
+                game.run(reader);
             }
 
         }

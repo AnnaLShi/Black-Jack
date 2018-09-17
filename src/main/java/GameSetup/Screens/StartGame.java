@@ -1,6 +1,7 @@
 package GameSetup.Screens;
 
 import GameSetup.DealCard;
+import ReaderTypes.FileReader;
 import Text_Based_UI.Display;
 import Text_Based_UI.GameMessages;
 import enumCardTypes.CardCommands;
@@ -19,29 +20,32 @@ public class StartGame {
 
         while (in.hasNext()) {
             cont = in.next();
-            if (cont.toUpperCase().equals(CardCommands.NO.name()) || cont.toUpperCase().equals(CardCommands.NO.getCommands())) {
+            if (checkNo(cont)) {
                 Display.returnToMainMenu();
                 break;
             }
-            else if (cont.toUpperCase().equals(CardCommands.YES.name()) || cont.toUpperCase().equals(CardCommands.YES.getCommands())) {
+            else if (checkYes(cont)) {
                 dealCard.resetDeckAndHands();
                 game.run(dealCard);
             }
-            else {
+            else if (invalidInput(cont)){
                 System.out.println("Invalid Command Entered \n");
             }
         }
 
     }
 
+    public void run(FileReader reader) {
+
+    }
     public boolean checkNo(String in){
-        return false;
+        return (in.toUpperCase().equals(CardCommands.NO.name()) || in.toUpperCase().equals(CardCommands.NO.getCommands()));
     }
     public boolean checkYes(String in) {
-        return false;
+        return (in.toUpperCase().equals(CardCommands.YES.name()) || in.toUpperCase().equals(CardCommands.YES.getCommands()));
     }
 
     public boolean invalidInput(String in) {
-        return false;
+        return true;
     }
 }
