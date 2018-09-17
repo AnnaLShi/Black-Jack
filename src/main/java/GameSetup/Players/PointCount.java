@@ -1,4 +1,4 @@
-package GameSetup;
+package GameSetup.Players;
 
 import GameSetup.CardBehaviour.Card;
 

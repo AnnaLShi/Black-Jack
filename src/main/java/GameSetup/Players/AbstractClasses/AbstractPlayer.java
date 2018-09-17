@@ -1,7 +1,7 @@
 package GameSetup.Players.AbstractClasses;
 
 import GameSetup.CardBehaviour.Card;
-import GameSetup.PointCount;
+import GameSetup.Players.PointCount;
 
 import java.util.ArrayList;
 

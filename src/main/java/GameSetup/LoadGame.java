@@ -1,6 +1,7 @@
 package GameSetup;
 
-import GameSetup.Screens.Game;
+import GameSetup.Screens.StartGame;
+
 import GameSetup.Screens.StartScreen;
 import ReaderTypes.DirectoryReader;
 import ReaderTypes.FileReader;
@@ -35,7 +36,8 @@ public class LoadGame {
             }
 
             else if (start.isConsoleChosen(inputStr)) {
-                start_game();
+                StartGame startGame = new StartGame();
+                startGame.run();
             }
             else if (start.isQuitChosen(inputStr)) {
                 break;
@@ -46,38 +48,6 @@ public class LoadGame {
         }
     }
 
-    private void start_game() {
-        // shuffle the deck, this will have to implement the AI of the dealer
-        System.out.print(GameMessages.Game_started);
-        Scanner in = new Scanner(System.in);
-        Game game = new Game();
-        String cont;
-        DealCard dealCard = new DealCard();
-        game.run(dealCard);
-
-        while (in.hasNext()) {
-            cont = in.next();
-            if (cont.toUpperCase().equals(CardCommands.NO.name()) || cont.toUpperCase().equals(CardCommands.NO.getCommands())) {
-                Display.returnToMainMenu();
-                break;
-            }
-            else if (cont.toUpperCase().equals(CardCommands.YES.name()) || cont.toUpperCase().equals(CardCommands.YES.getCommands())) {
-                dealCard.resetDeckAndHands();
-                game.run(dealCard);
-            }
-            else {
-                System.out.println("Invalid Command Entered \n");
-            }
-        }
-
-    }
-
-
-
-    private void start_game(FileReader reader) {
-        FileInterpreter file = new FileInterpreter(reader);
-        file.runFile();
-    }
 
 
     private void file_loader() {
@@ -106,7 +76,8 @@ public class LoadGame {
 
             if (reader.validateFileType()) {
                 System.out.print(IntroScreenUI.alt_successful_file(getFileName));
-                start_game(reader);
+                StartGame game = new StartGame();
+                game.run();
             }
 
         }
