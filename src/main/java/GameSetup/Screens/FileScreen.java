@@ -41,6 +41,7 @@ public class FileScreen {
                 StartGame game = new StartGame();
                 game.run(reader);
             }
+            System.out.println(directory.printArrayListFiles());
 
         }
     }

@@ -13,7 +13,7 @@ public class GameMessages {
     public final static String User_busts = "You've gone over 21 points, You Lose \n";
     public final static String Dealer_busts = "Dealer busts, You win \n";
     public final static String User_Options = "Would you Hit (H) or Stand (S)?";
-
+    public final static String User_Stands = "User Stands";
 
     // Board
     public final static String outline = "------------------------------------------------------------------";

@@ -27,50 +27,48 @@ public class FileReader {
     private boolean checkValidRuleType() {
         // this would test if the files  specified in the deck
         String [] reading;
-
         if (this.read == null) {
             return false;
         }
         for (int i = 0; i < this.read.size(); i++) {
             String file = this.read.get(i);
             reading = file.split("\\s+");
-            for (int j = 0; j < reading.length; j++) {
-
-                if (!checkValidCommands(reading[j])) {
-                    for (int k = 0; k < reading[j].length(); k++) {
-                        if (!checkValidCommands(Character.toString(reading[j].charAt(k)))) {
-                            return false;
-                        }
-                    }
+            // check commands
+            for (CardCommands commands: CardCommands.values()) {
+                if (this.read.get(i).toUpperCase().equals(commands.getCommands())) {
+                    return true;
                 }
             }
+            for (int j = 0; j < reading.length; j++) {
+                // rewrite
+                if (!checkValidCommands(Character.toString(this.read.get(i).charAt(j)))) {
+                    System.out.println(false);
+                    return true;
+                }
+            }
+
         }
+
         return true;
     }
+
 
     private boolean checkValidCommands(String command) {
         //System.out.println(command);
         // this is broken for some reason... in file reader so this would need to be checked later
-        return false;
-    }
-/**
-        for (CardSuits suit: CardSuits.values()) {
+        for (CardSuits suit : CardSuits.values()) {
             if (suit.getSuit().equals(command.toUpperCase()) || suit.name().equals(command.toUpperCase())) {
                 return true;
             }
         }
 
-        for (CardTypes types: CardTypes.values()) {
+        for (CardTypes types : CardTypes.values()) {
             if (types.getCardType().equals(command.toUpperCase()) || types.name().equals(command.toUpperCase())) {
                 return true;
             }
         }
-        for (CardCommands comands: CardCommands.values()) {
-            if (comands.name().equals(command.toUpperCase())) {
-                return true;
-            }
-        }
-        return false; **/
+        return false;
+    }
     public boolean validateFileType() {
         // this returns if the files read.
         return this.isValidFileType;
@@ -92,7 +90,6 @@ public class FileReader {
                 fileCommands = this.read.get(i).split("\\s+");
                 commandList.addAll(Arrays.asList(fileCommands));
             }
-            System.out.println(commandList.get(i));
         }
 
         return commandList;

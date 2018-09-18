@@ -1,7 +1,9 @@
 package enumCardTypes;
 
 public enum CardCommands {
-    SPLITS ("SPLITS"),
+    DS("DEALER SPLITS"),
+    PS("PLAYER SPLITS"),
+    SPLITS ("SPLTS"),
     Test ("NULL"),
     PLAYER ("PLAYER"),
     DEALER ("DEALER"),

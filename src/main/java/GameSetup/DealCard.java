@@ -36,7 +36,7 @@ public class DealCard {
         this.user = new User();
         this.dealer = new Dealer();
         this.count = new PointCount();
-
+        givePlayersCards();
     }
 
     public boolean blackJackUserDealerEquals() {
