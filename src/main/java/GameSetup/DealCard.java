@@ -118,10 +118,23 @@ public class DealCard {
         return this.deck.getCardDeck().get(0);
     }
 
+
+
     public boolean isFromFile() {
         // do this later
         return false;
     }
+
+    public boolean isUserSplitable() {
+        return false;
+    }
+
+
+    public boolean isDealerSplitable() {
+        return false;
+    }
+
+    public void split() {}
     public User getUser() {
         return this.user;
     }
