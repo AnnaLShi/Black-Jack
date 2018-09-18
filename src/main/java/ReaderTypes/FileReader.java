@@ -51,7 +51,7 @@ public class FileReader {
     private boolean checkValidCommands(String command) {
         //System.out.println(command);
         // this is broken for some reason... in file reader so this would need to be checked later
-        return true;
+        return false;
 /**
         for (CardSuits suit: CardSuits.values()) {
             if (suit.getSuit().equals(command.toUpperCase()) || suit.name().equals(command.toUpperCase())) {
