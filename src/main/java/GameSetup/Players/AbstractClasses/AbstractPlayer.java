@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public abstract class AbstractPlayer {
     private ArrayList<Card> hand;
     private PointCount pointCount;
-    private int points;
+    private int points = 0;
 
     public AbstractPlayer() {
         this.hand = new ArrayList<Card>();

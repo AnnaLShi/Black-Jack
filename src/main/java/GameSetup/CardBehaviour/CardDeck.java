@@ -1,9 +1,6 @@
 package GameSetup.CardBehaviour;
 
-import enumCardTypes.CardRules;
-import enumCardTypes.CardSuits;
-import enumCardTypes.CardTypes;
-import enumCardTypes.CardValue;
+import enumCardTypes.*;
 
 import java.io.FileReader;
 import java.io.Reader;
@@ -39,7 +36,7 @@ public class CardDeck {
     private ArrayList<Card> initCustomDeck(ArrayList<String> commands) {
         this.cardDeck = new ArrayList<Card>();
         for (String com: commands) {
-            if (com.length() > 1) {
+            if (com.length() > 1 && !com.toUpperCase().equals(CardCommands.PS.getCommands()) && !com.toUpperCase().equals(CardCommands.DS.getCommands())) {
                 this.cardDeck.add(findSpecifiedCard(com));
             }
         }
@@ -52,6 +49,7 @@ public class CardDeck {
         String num = "";
         for (CardSuits suits: CardSuits.values()) {
                 if (Character.toString(com.charAt(0)).equals(suits.getSuit())) {
+         //          System.out.println(com.charAt(0));
                     card.setSuit(suits);
                 }
         }
