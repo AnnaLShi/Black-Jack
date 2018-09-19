@@ -21,15 +21,31 @@ public class GameMessages {
     // Card Info display
     public final static String examCard = "Type out you card to examine value of card as displayed. \n";
 
-    public final static String displayPlayerCards(DealCard dealCard) {
+    public final static String displayPlayerCards(DealCard dealCard, boolean displaySplithand) {
         String display = "";
-        for (Card card: dealCard.getUser().getHand()) {
-            display += card.getCardSuit() + card.getCardType().getCardType() + " ";
+        if (displaySplithand) {
+            for (Card card : dealCard.getUser().getHands()) {
+                display += card.getCardSuit() + card.getCardType().getCardType() + " ";
+            }
+            return "Your Cards: " + display + "\n";
         }
-        return  "Your Cards: " + display + "\n";
+        else {
+            for (Card card : dealCard.getUser().getHand()) {
+                display += card.getCardSuit() + card.getCardType().getCardType() + " ";
+            }
+            return  "Your Cards: " + display + "\n";
+        }
     }
 
     public final static String displayDealerCards(DealCard dealCard) {
+        String display = "";
+        for (Card card: dealCard.getDealer().getHand()) {
+            display += card.getCardSuit() + card.getCardType().getCardType() + " ";
+        }
+        return  "Dealer Cards: " + display + "\n";
+    }
+
+    public final static String displayOneUnkownDealerCards(DealCard dealCard) {
         String display = "";
         for (Card card: dealCard.getDealer().getHand()) {
             display += card.getCardSuit() + card.getCardType().getCardType() + " ";
