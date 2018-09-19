@@ -15,7 +15,7 @@ public final class Display_FileInter {
 
         System.out.println(GameMessages.userPoints(dealCard.getUser().getPoints()));
         System.out.println("User " + GameMessages.amountWorth(dealCard.getUser().getPointCount()));
-        System.out.println(GameMessages.displayPlayerCards(dealCard));
+        System.out.println(GameMessages.displayPlayerCards(dealCard, false));
     }
 
     public static void displayWinning(DealCard dealCard) {

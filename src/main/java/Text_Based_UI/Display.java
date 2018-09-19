@@ -1,11 +1,17 @@
 package Text_Based_UI;
 
 import GameSetup.DealCard;
+import GameSetup.Players.PointCount;
+import GameSetup.Screens.Game;
 
 
 // this shows all the display classes
 public class Display {
-    public static void displayGame(DealCard dealCard) {
+    private  PointCount count = new PointCount();
+
+    public static void displayGame(DealCard dealCard, boolean isSplit) {
+        PointCount count = new PointCount();
+
         System.out.println(GameMessages.outline);
         System.out.println(GameMessages.dealerPoints(dealCard.getDealer().getPoints()));
         System.out.println(GameMessages.examCard);
@@ -14,11 +20,18 @@ public class Display {
 
         System.out.println(GameMessages.userPoints(dealCard.getUser().getPoints()));
         System.out.println(GameMessages.amountWorth( dealCard.getUser().getPointCount()));
-        System.out.println(GameMessages.displayPlayerCards(dealCard));
+        System.out.println(GameMessages.displayPlayerCards(dealCard, false));
+        if (isSplit) {
+            System.out.println(GameMessages.amountWorth(count.add(dealCard.getUser().getHands())));
+            System.out.println(GameMessages.displayPlayerCards(dealCard, isSplit));
+        }
+
         System.out.println(GameMessages.User_Options);
     }
 
-    public static void displayResult(DealCard dealCard) {
+    public static void displayResult(DealCard dealCard,  boolean isSplit) {
+
+
         System.out.println(GameMessages.outline);
         System.out.println(GameMessages.dealerPoints(dealCard.getDealer().getPoints()));
         System.out.println("Dealer " + GameMessages.amountWorth(dealCard.getDealer().getPointCount()));
@@ -26,32 +39,36 @@ public class Display {
 
         System.out.println(GameMessages.userPoints(dealCard.getUser().getPoints()));
         System.out.println("User " + GameMessages.amountWorth(dealCard.getUser().getPointCount()));
-        System.out.println(GameMessages.displayPlayerCards(dealCard));
+        System.out.println(GameMessages.displayPlayerCards(dealCard, isSplit));
+        if (isSplit) {
+            System.out.println(GameMessages.amountWorth(dealCard.getUser().getPointHand2Count()));
+            System.out.println(GameMessages.displayPlayerCards(dealCard, isSplit));
+        }
     }
 
-    public static void displayWinning(DealCard dealCard) {
-        displayResult(dealCard);
+    public static void displayWinning(DealCard dealCard, boolean isSplit) {
+        displayResult(dealCard, isSplit);
         System.out.println(GameMessages.win);
         System.out.println(GameMessages.outline);
         System.out.println(GameMessages.contPlay);
     }
 
-    public static void displayLosing(DealCard dealCard) {
-        displayResult(dealCard);
+    public static void displayLosing(DealCard dealCard,  boolean isSplit) {
+        displayResult(dealCard, isSplit);
         System.out.println(GameMessages.lost);
         System.out.println(GameMessages.outline);
         System.out.println(GameMessages.contPlay);
     }
 
-    public static void displayDealerBustLosing(DealCard dealCard) {
-        displayResult(dealCard);
+    public static void displayDealerBustLosing(DealCard dealCard,  boolean isSplit) {
+        displayResult(dealCard, isSplit);
         System.out.println(GameMessages.Dealer_busts);
         System.out.println(GameMessages.outline);
         System.out.println(GameMessages.contPlay);
     }
 
-    public static void displayUserBustLosing(DealCard dealCard) {
-        displayResult(dealCard);
+    public static void displayUserBustLosing(DealCard dealCard,  boolean isSplit) {
+        displayResult(dealCard, isSplit);
         System.out.println(GameMessages.User_busts);
         System.out.println(GameMessages.outline);
         System.out.println(GameMessages.contPlay);
@@ -63,17 +80,32 @@ public class Display {
         System.out.println(IntroScreenUI.introToGame_Hello);
     }
 
-    public static void displayUserBlackJack(DealCard dealCard) {
-        displayResult(dealCard);
+    public static void displayUserBlackJack(DealCard dealCard,  boolean isSplit) {
+        displayResult(dealCard, isSplit);
         System.out.println(GameMessages.BJ_win_user);
         System.out.println(GameMessages.contPlay);
     }
 
 
-    public static void displayDealerBlackJack(DealCard dealCard) {
-        displayResult(dealCard);
+    public static void displayDealerBlackJack(DealCard dealCard,  boolean isSplit) {
+        displayResult(dealCard, isSplit);
         System.out.println(GameMessages.BJ_win_dealer);
         System.out.println(GameMessages.contPlay);
+    }
+
+    public static void displayUserSplitHand(DealCard dealCard) {
+
+        PointCount count = new PointCount();
+        System.out.println(GameMessages.outline);
+        System.out.println(GameMessages.dealerPoints(dealCard.getDealer().getPoints()));
+        System.out.println("Dealer " + GameMessages.amountWorth(dealCard.getDealer().getPointCount()));
+        System.out.println(GameMessages.displayDealerCards(dealCard));
+
+        System.out.println(GameMessages.userPoints(dealCard.getUser().getPoints()));
+        System.out.println("User hand 1: " + GameMessages.amountWorth(dealCard.getUser().getPointCount()));
+        System.out.println(GameMessages.displayPlayerCards(dealCard, false));
+        System.out.println("User hand 2: " + GameMessages.amountWorth(count.add(dealCard.getUser().getHands())));
+        System.out.println(GameMessages.displayPlayerCards(dealCard, true));
     }
 
 }

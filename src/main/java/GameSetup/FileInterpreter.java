@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class FileInterpreter {
     private FileReader file;
     private DealCard card;
+    private boolean hasSplitUser;
 
     public FileInterpreter(FileReader reader) {
         this.file = reader;
@@ -22,17 +23,17 @@ public class FileInterpreter {
 
     public void runFile() {
           System.out.println(FileInterpreterUI.fileGameStarted);
-          Display_FileInter.displayResult(this.card);
+        Display.displayUserSplitHand(card);
 
           if (this.card.blackJackUserDealerEquals()) {
               this.card.getDealer().addPoints(this.card.getDealer().getPointCount());
-              Display.displayLosing(this.card);
+              Display.displayLosing(this.card, false);
               return;
           }
 
           if (this.card.checkforBlackJackInUser()) {
               this.card.getUser().addPoints(this.card.getUser().getPointCount());
-              Display.displayUserBlackJack(this.card);
+              Display.displayUserBlackJack(this.card, false);
               return;
           }
 
@@ -41,12 +42,12 @@ public class FileInterpreter {
 
           if (this.card.getUser().checkBurst()) {
               this.card.getDealer().addPoints(this.card.getDealer().getPointCount());
-            Display.displayUserBustLosing(this.card);
+            Display.displayUserBustLosing(this.card, this.card.isHasSplitUser());
             return;
           }
           if (this.card.getDealer().checkBurst()) {
               this.card.getUser().addPoints(this.card.getUser().getPointCount());
-              Display.displayDealerBustLosing(this.card);
+              Display.displayDealerBustLosing(this.card, false);
               return;
           }
 
@@ -70,21 +71,24 @@ public class FileInterpreter {
             if (com.toUpperCase().equals(CardCommands.HIT.getCommands())) {
                 this.card.hitUserCalled();
                 System.out.println(GameMessages.User_hit_called);
-                Display.displayGame(this.card);
+                Display.displayUserSplitHand(card);
             }
-            else if (com.toUpperCase().equals(CardCommands.DS.getCommands())) {
-
-            }
-            else if (com.toUpperCase().equals(CardCommands.PS.getCommands())) {
-
+            else if (com.toUpperCase().equals(CardCommands.PLAYERSPLITS.getCommands())) {
+                hasSplitUser = true;
+                this.card.userSplit();
+                Display.displayUserSplitHand(card);
             }
             else if (com.toUpperCase().equals(CardCommands.STAND.getCommands())) {
+                Display.displayUserSplitHand(card);
                 this.card.playDealer();
                 System.out.println(GameMessages.User_Stands);
             }
         }
     }
 
+    public boolean getHasUserSplit() {
+        return hasSplitUser;
+    }
     public void fileHit() {
         card.hitUserCalled();
     }

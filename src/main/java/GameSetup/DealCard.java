@@ -10,6 +10,7 @@ import ReaderTypes.FileReader;
 import enumCardTypes.CardValue;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 // this should handle the dealing with two cards
@@ -19,6 +20,7 @@ public class DealCard {
     private CardDeck deck;
     private PointCount count;
     private int black_jack = 21;
+    private boolean hasSplitUser;
 
     public DealCard() {
         this.deck = new CardDeck();
@@ -73,7 +75,10 @@ public class DealCard {
 
     public void playDealer() {
          while (this.dealer.getPointCount() <= 16 || checksoft17()) {
-            hitDealerCalled();
+             if (this.dealer.getHand().get(0).getPointValue().name().equals(this.dealer.getHand().get(1).getPointValue().name())) {
+                 dealerSplit();
+             }
+             hitDealerCalled();
          }
     }
 
@@ -103,6 +108,11 @@ public class DealCard {
         this.deck.deleteCard(0);
     }
 
+    public void hitUserhand2Called() {
+        this.user.addCardHand2(getFirstCard());
+        this.deck.deleteCard(0);
+    }
+
     public void hitDealerCalled() {
         System.out.println(getFirstCard().getCardSuit());
         this.dealer.addCard(getFirstCard());
@@ -126,15 +136,41 @@ public class DealCard {
     }
 
     public boolean isUserSplitable() {
+        if (Arrays.equals(this.user.getHand().get(0).getPointValue().getCardValue(), this.user.getHand().get(1).getPointValue().getCardValue())) {
+            return true;
+        }
         return false;
     }
 
 
     public boolean isDealerSplitable() {
+        if (Arrays.equals(this.dealer.getHand().get(0).getPointValue().getCardValue(), this.dealer.getHand().get(1).getPointValue().getCardValue())) {
+            return true;
+        }
         return false;
     }
 
-    public void split() {}
+    public void userSplit() {
+        hasSplitUser = true;
+
+        this.user.setUpSplit();
+        this.user.addCard(getFirstCard());
+        this.deck.deleteCard(0);
+        this.user.addCardHand2(getFirstCard());
+        this.deck.deleteCard(0);
+    }
+
+    public void dealerSplit() {
+        this.dealer.setUpSplit();
+        this.dealer.addCard(getFirstCard());
+        this.deck.deleteCard(0);
+        this.dealer.addCardHand2(getFirstCard());
+        this.deck.deleteCard(0);
+    }
+
+    public boolean isHasSplitUser() {
+        return this.hasSplitUser;
+    }
     public User getUser() {
         return this.user;
     }
