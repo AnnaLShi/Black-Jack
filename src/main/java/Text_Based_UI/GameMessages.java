@@ -3,6 +3,8 @@ package Text_Based_UI;
 import GameSetup.CardBehaviour.Card;
 import GameSetup.DealCard;
 
+import java.util.ArrayList;
+
 public class GameMessages {
 
     // Messages
@@ -37,10 +39,18 @@ public class GameMessages {
         }
     }
 
-    public final static String displayDealerCards(DealCard dealCard) {
+    public final static String displayDealerCards(DealCard dealCard, boolean splitHands) {
         String display = "";
-        for (Card card: dealCard.getDealer().getHand()) {
-            display += card.getCardSuit() + card.getCardType().getCardType() + " ";
+        if (splitHands) {
+            for (Card card : dealCard.getDealer().getHands()) {
+                display += card.getCardSuit() + card.getCardType().getCardType() + " ";
+            }
+
+        }
+        else {
+            for (Card card : dealCard.getDealer().getHand()) {
+                display += card.getCardSuit() + card.getCardType().getCardType() + " ";
+            }
         }
         return  "Dealer Cards: " + display + "\n";
     }
@@ -61,11 +71,16 @@ public class GameMessages {
         return "Card Total " + amount;
     }
         //dealer
-    public final static String dealerCards(int size) {
+    public final static String dealerCards(ArrayList<Card> cards) {
         String mystery = "";
 
-        for (int j = 0; j < size; j++) {
-            mystery += " ??";
+        for (int j = 0; j < cards.size(); j++) {
+            if (j == 0) {
+                mystery += cards.get(j).getCardSuit() + cards.get(j).getCardType().getCardType();
+            }
+            else {
+                mystery += " ??";
+            }
         }
         return "Dealer hand: " + mystery + "\n";
 

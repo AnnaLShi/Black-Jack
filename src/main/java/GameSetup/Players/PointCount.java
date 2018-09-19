@@ -14,7 +14,7 @@ public class PointCount {
     public int add(ArrayList<Card> cards) {
         int total_points = 0;
         if (cards == null) {
-            return -1;
+            return 0;
         }
         // check for two aces
         for (Card card: cards ) {

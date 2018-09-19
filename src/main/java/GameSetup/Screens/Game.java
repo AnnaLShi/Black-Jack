@@ -22,7 +22,7 @@ public class Game {
         String inputStr;
         PointCount count = new PointCount();
         int point_to_card_loc = 0;
-        Display.displayGame(dealCard, false);
+        Display.displayGame(dealCard, false, false);
 
 
         if (dealCard.blackJackUserDealerEquals()) {
@@ -64,6 +64,7 @@ public class Game {
 
             else if (dealCard.getUser().checkBurst()) {
                 dealCard.getDealer().addPoints(dealCard.getDealer().getPointCount());
+                dealCard.getDealer().addPoints(dealCard.getDealer().getPointHand2Count());
                 Display.displayUserBustLosing(dealCard, dealCard.isHasSplitUser());
                 break;
             }
@@ -79,6 +80,7 @@ public class Game {
 
                 if (dealCard.getDealer().checkBurst()) {
                     dealCard.getUser().addPoints(dealCard.getUser().getPointCount());
+                    dealCard.getUser().addPoints(dealCard.getUser().getPointHand2Count());
                     Display.displayDealerBustLosing(dealCard, dealCard.isHasSplitUser());
                     break;
                 }
@@ -93,6 +95,7 @@ public class Game {
 
                 else if (checkDealerWinning(dealCard)) {
                     dealCard.getDealer().addPoints(dealCard.getDealer().getPointCount());
+                    dealCard.getDealer().addPoints(dealCard.getDealer().getPointHand2Count());
                     Display.displayLosing(dealCard,  dealCard.isHasSplitUser());
                     break;
 
@@ -101,7 +104,7 @@ public class Game {
             }
 
 
-            Display.displayGame(dealCard, dealCard.isHasSplitUser());
+            Display.displayGame(dealCard, dealCard.isHasSplitUser(), dealCard.isHasDealerSplit());
         }
     }
 

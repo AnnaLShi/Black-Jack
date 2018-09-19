@@ -9,14 +9,18 @@ import GameSetup.Screens.Game;
 public class Display {
     private  PointCount count = new PointCount();
 
-    public static void displayGame(DealCard dealCard, boolean isSplit) {
+    public static void displayGame(DealCard dealCard, boolean isSplit, boolean dealerSplit) {
         PointCount count = new PointCount();
 
         System.out.println(GameMessages.outline);
+
         System.out.println(GameMessages.dealerPoints(dealCard.getDealer().getPoints()));
         System.out.println(GameMessages.examCard);
-        System.out.println(GameMessages.dealerCards(dealCard.getDealer().getHand().size()));
-
+        System.out.println(GameMessages.dealerCards(dealCard.getDealer().getHand()));
+        if (dealerSplit) {
+            System.out.println(GameMessages.amountWorth(count.add(dealCard.getDealer().getHands())));
+            System.out.println(GameMessages.displayDealerCards(dealCard, dealerSplit));
+        }
 
         System.out.println(GameMessages.userPoints(dealCard.getUser().getPoints()));
         System.out.println(GameMessages.amountWorth( dealCard.getUser().getPointCount()));
@@ -26,16 +30,18 @@ public class Display {
             System.out.println(GameMessages.displayPlayerCards(dealCard, isSplit));
         }
 
+        if (dealCard.isUserSplitable()) {
+            System.out.println(GameMessages.User_Options + "Or Split(D)");
+        }
         System.out.println(GameMessages.User_Options);
     }
 
     public static void displayResult(DealCard dealCard,  boolean isSplit) {
 
-
         System.out.println(GameMessages.outline);
         System.out.println(GameMessages.dealerPoints(dealCard.getDealer().getPoints()));
         System.out.println("Dealer " + GameMessages.amountWorth(dealCard.getDealer().getPointCount()));
-        System.out.println(GameMessages.displayDealerCards(dealCard));
+        System.out.println(GameMessages.displayDealerCards(dealCard, dealCard.isHasDealerSplit()));
 
         System.out.println(GameMessages.userPoints(dealCard.getUser().getPoints()));
         System.out.println("User " + GameMessages.amountWorth(dealCard.getUser().getPointCount()));
@@ -99,7 +105,7 @@ public class Display {
         System.out.println(GameMessages.outline);
         System.out.println(GameMessages.dealerPoints(dealCard.getDealer().getPoints()));
         System.out.println("Dealer " + GameMessages.amountWorth(dealCard.getDealer().getPointCount()));
-        System.out.println(GameMessages.displayDealerCards(dealCard));
+        System.out.println(GameMessages.displayDealerCards(dealCard, dealCard.isHasDealerSplit()));
 
         System.out.println(GameMessages.userPoints(dealCard.getUser().getPoints()));
         System.out.println("User hand 1: " + GameMessages.amountWorth(dealCard.getUser().getPointCount()));

@@ -21,7 +21,7 @@ public class DealCard {
     private PointCount count;
     private int black_jack = 21;
     private boolean hasSplitUser;
-
+    private boolean hasDealerSplit = false;
     public DealCard() {
         this.deck = new CardDeck();
         this.user = new User();
@@ -75,11 +75,19 @@ public class DealCard {
 
     public void playDealer() {
          while (this.dealer.getPointCount() <= 16 || checksoft17()) {
-             if (this.dealer.getHand().get(0).getPointValue().name().equals(this.dealer.getHand().get(1).getPointValue().name())) {
+             if (isDealerSplitable() && this.dealer.getPointCount() <= 16) {
                  dealerSplit();
+                 this.hasDealerSplit = true;
              }
              hitDealerCalled();
          }
+/**
+         if (hasDealerSplit) {
+             while (this.dealer.getPointHand2Count() <=  16 || checksoft17hand2()) {
+                  hitUserhand2Called();
+             }
+         }
+**/
     }
 
     private boolean checksoft17() {
@@ -89,6 +97,18 @@ public class DealCard {
             }
         }
         return false;
+    }
+    private boolean checksoft17hand2() {
+        for (Card card: this.dealer.getHand()) {
+            if (card.getPointValue().name().equals(CardValue.ACE.name()) && dealer.getPointCount() == 17) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isHasDealerSplit() {
+        return this.hasDealerSplit;
     }
 
     public void givePlayersCards() {
@@ -114,8 +134,12 @@ public class DealCard {
     }
 
     public void hitDealerCalled() {
-        System.out.println(getFirstCard().getCardSuit());
         this.dealer.addCard(getFirstCard());
+        this.deck.deleteCard(0);
+    }
+
+    public void hitDealerCalledHand2() {
+        this.dealer.addCardHand2(getFirstCard());
         this.deck.deleteCard(0);
     }
 
