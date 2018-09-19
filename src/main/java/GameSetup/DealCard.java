@@ -171,7 +171,6 @@ public class DealCard {
     public boolean isHasSplitUser() {
         return this.hasSplitUser;
     }
-
     public User getUser() {
         return this.user;
     }

@@ -36,7 +36,6 @@ public class TestSplit {
         dealCard.getUser().addCard(card2);
         dealCard.userSplit();
 
-
         assertEquals(2 , dealCard.getUser().getHand().size());
     }
 

@@ -18,7 +18,7 @@ public class TestCardDeck {
     @DisplayName("Check for No Joker")
     public void checkNoJoker() {
         // Deck shuffled has no jokers.
-        CardDeck cardDeck = new CardDeck(null);
+        CardDeck cardDeck = new CardDeck();
         assertFalse(cardDeck.hasJoker());
     }
 
@@ -26,7 +26,7 @@ public class TestCardDeck {
     @DisplayName("Check for Rules")
     public void checkRules() {
         // this should never be null, as it is. it should just default to default size
-        CardDeck deck = new CardDeck(null);
+        CardDeck deck = new CardDeck();
         assertNotNull(deck.getDeckRules());
 
 
@@ -36,7 +36,7 @@ public class TestCardDeck {
     public void checkCardsInDeckUnique() {
         // All card in the deck should be Unqiue.
         // override if there is two or more decks being played.
-        CardDeck deck = new CardDeck(null);
+        CardDeck deck = new CardDeck();
         HashSet<Card> uniqueCheck = new HashSet<Card>();
         // change name...
         assertEquals(deck.getDeckRules().getRules().get(CardRules.DECK_SIZE) , deck.getSize());
@@ -48,7 +48,7 @@ public class TestCardDeck {
     @DisplayName("Check for Assigned Cards to be correct")
     public void checkCardsHaveCorrectValue() {
         // that the cards when first configured that the CardValue and CardType has the same name of enum...
-        CardDeck deck = new CardDeck(null);
+        CardDeck deck = new CardDeck();
 
 
         for (Card card: deck.getCardDeck()) {
